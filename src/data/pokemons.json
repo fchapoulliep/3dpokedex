@@ -1,0 +1,2871 @@
+[
+  {
+    "id": 1,
+    "name": {
+      "english": "Bulbasaur",
+      "japanese": "フシギダネ",
+      "chinese": "妙蛙种子",
+      "french": "Bulbizarre"
+    },
+    "description": "A strange seed was planted on its back at birth. The plant sprouts and grows with this Pokémon.",
+    "type": ["Grass", "Poison"],
+    "base": {
+      "HP": 45,
+      "Attack": 49,
+      "Defense": 49,
+      "Sp. Attack": 65,
+      "Sp. Defense": 65,
+      "Speed": 45
+    }
+  },
+  {
+    "id": 2,
+    "name": {
+      "english": "Ivysaur",
+      "japanese": "フシギソウ",
+      "chinese": "妙蛙草",
+      "french": "Herbizarre"
+    },
+    "description": "When the bulb on its back grows large, it appears to lose the ability to stand on its hind legs.",
+    "type": ["Grass", "Poison"],
+    "base": {
+      "HP": 60,
+      "Attack": 62,
+      "Defense": 63,
+      "Sp. Attack": 80,
+      "Sp. Defense": 80,
+      "Speed": 60
+    }
+  },
+  {
+    "id": 3,
+    "name": {
+      "english": "Venusaur",
+      "japanese": "フシギバナ",
+      "chinese": "妙蛙花",
+      "french": "Florizarre"
+    },
+    "description": "The plant blooms when it is absorbing solar energy. It stays on the move to seek sunlight.",
+    "type": ["Grass", "Poison"],
+    "base": {
+      "HP": 80,
+      "Attack": 82,
+      "Defense": 83,
+      "Sp. Attack": 100,
+      "Sp. Defense": 100,
+      "Speed": 80
+    }
+  },
+  {
+    "id": 4,
+    "name": {
+      "english": "Charmander",
+      "japanese": "ヒトカゲ",
+      "chinese": "小火龙",
+      "french": "Salamèche"
+    },
+    "description": "Obviously prefers hot places. When it rains, steam is said to spout from the tip of its tail.",
+    "type": ["Fire"],
+    "base": {
+      "HP": 39,
+      "Attack": 52,
+      "Defense": 43,
+      "Sp. Attack": 60,
+      "Sp. Defense": 50,
+      "Speed": 65
+    }
+  },
+  {
+    "id": 5,
+    "name": {
+      "english": "Charmeleon",
+      "japanese": "リザード",
+      "chinese": "火恐龙",
+      "french": "Reptincel"
+    },
+    "description": "When it swings its burning tail, it elevates the temperature to unbearably high levels.",
+    "type": ["Fire"],
+    "base": {
+      "HP": 58,
+      "Attack": 64,
+      "Defense": 58,
+      "Sp. Attack": 80,
+      "Sp. Defense": 65,
+      "Speed": 80
+    }
+  },
+  {
+    "id": 6,
+    "name": {
+      "english": "Charizard",
+      "japanese": "リザードン",
+      "chinese": "喷火龙",
+      "french": "Dracaufeu"
+    },
+    "description": "Spits fire that is hot enough to melt boulders. Known to cause forest fires unintentionally.",
+    "type": ["Fire", "Flying"],
+    "base": {
+      "HP": 78,
+      "Attack": 84,
+      "Defense": 78,
+      "Sp. Attack": 109,
+      "Sp. Defense": 85,
+      "Speed": 100
+    }
+  },
+  {
+    "id": 7,
+    "name": {
+      "english": "Squirtle",
+      "japanese": "ゼニガメ",
+      "chinese": "杰尼龟",
+      "french": "Carapuce"
+    },
+    "description": "After birth, its back swells and hardens into a shell. Powerfully sprays foam from its mouth.",
+    "type": ["Water"],
+    "base": {
+      "HP": 44,
+      "Attack": 48,
+      "Defense": 65,
+      "Sp. Attack": 50,
+      "Sp. Defense": 64,
+      "Speed": 43
+    }
+  },
+  {
+    "id": 8,
+    "name": {
+      "english": "Wartortle",
+      "japanese": "カメール",
+      "chinese": "卡咪龟",
+      "french": "Carabaffe"
+    },
+    "description": "Often hides in water to stalk unwary prey. For swimming fast, it moves its ears to maintain balance.",
+    "type": ["Water"],
+    "base": {
+      "HP": 59,
+      "Attack": 63,
+      "Defense": 80,
+      "Sp. Attack": 65,
+      "Sp. Defense": 80,
+      "Speed": 58
+    }
+  },
+  {
+    "id": 9,
+    "name": {
+      "english": "Blastoise",
+      "japanese": "カメックス",
+      "chinese": "水箭龟",
+      "french": "Tortank"
+    },
+    "description": "A brutal Pokémon with pressurized water jets on its shell. They are used for high-speed tackles.",
+    "type": ["Water"],
+    "base": {
+      "HP": 79,
+      "Attack": 83,
+      "Defense": 100,
+      "Sp. Attack": 85,
+      "Sp. Defense": 105,
+      "Speed": 78
+    }
+  },
+  {
+    "id": 10,
+    "name": {
+      "english": "Caterpie",
+      "japanese": "キャタピー",
+      "chinese": "绿毛虫",
+      "french": "Chenipan"
+    },
+    "description": "Its short feet are tipped with suction pads that enable it to tirelessly climb slopes and walls.",
+    "type": ["Bug"],
+    "base": {
+      "HP": 45,
+      "Attack": 30,
+      "Defense": 35,
+      "Sp. Attack": 20,
+      "Sp. Defense": 20,
+      "Speed": 45
+    }
+  },
+  {
+    "id": 11,
+    "name": {
+      "english": "Metapod",
+      "japanese": "トランセル",
+      "chinese": "铁甲蛹",
+      "french": "Chrysacier"
+    },
+    "description": "This Pokémon is vulnerable to attack while its shell is soft, exposing its weak and tender body.",
+    "type": ["Bug"],
+    "base": {
+      "HP": 50,
+      "Attack": 20,
+      "Defense": 55,
+      "Sp. Attack": 25,
+      "Sp. Defense": 25,
+      "Speed": 30
+    }
+  },
+  {
+    "id": 12,
+    "name": {
+      "english": "Butterfree",
+      "japanese": "バタフリー",
+      "chinese": "巴大蝶",
+      "french": "Papilusion"
+    },
+    "description": "In battle, it flaps its wings at great speed to release highly toxic dust into the air.",
+    "type": ["Bug", "Flying"],
+    "base": {
+      "HP": 60,
+      "Attack": 45,
+      "Defense": 50,
+      "Sp. Attack": 90,
+      "Sp. Defense": 80,
+      "Speed": 70
+    }
+  },
+  {
+    "id": 13,
+    "name": {
+      "english": "Weedle",
+      "japanese": "ビードル",
+      "chinese": "独角虫",
+      "french": "Aspicot"
+    },
+    "description": "Often found in forests, eating leaves. It has a sharp venomous stinger on its head.",
+    "type": ["Bug", "Poison"],
+    "base": {
+      "HP": 40,
+      "Attack": 35,
+      "Defense": 30,
+      "Sp. Attack": 20,
+      "Sp. Defense": 20,
+      "Speed": 50
+    }
+  },
+  {
+    "id": 14,
+    "name": {
+      "english": "Kakuna",
+      "japanese": "コクーン",
+      "chinese": "铁壳蛹",
+      "french": "Coconfort"
+    },
+    "description": "Almost incapable of moving, this Pokémon can only harden its shell to protect itself from predators.",
+    "type": ["Bug", "Poison"],
+    "base": {
+      "HP": 45,
+      "Attack": 25,
+      "Defense": 50,
+      "Sp. Attack": 25,
+      "Sp. Defense": 25,
+      "Speed": 35
+    }
+  },
+  {
+    "id": 15,
+    "name": {
+      "english": "Beedrill",
+      "japanese": "スピアー",
+      "chinese": "大针蜂",
+      "french": "Dardargnan"
+    },
+    "description": "Flies at high speed and attacks using its large venomous stingers on its forelegs and tail.",
+    "type": ["Bug", "Poison"],
+    "base": {
+      "HP": 65,
+      "Attack": 90,
+      "Defense": 40,
+      "Sp. Attack": 45,
+      "Sp. Defense": 80,
+      "Speed": 75
+    }
+  },
+  {
+    "id": 16,
+    "name": {
+      "english": "Pidgey",
+      "japanese": "ポッポ",
+      "chinese": "波波",
+      "french": "Roucool"
+    },
+    "description": "A common sight in forests and woods. It flaps its wings at ground level to kick up blinding sand.",
+    "type": ["Normal", "Flying"],
+    "base": {
+      "HP": 40,
+      "Attack": 45,
+      "Defense": 40,
+      "Sp. Attack": 35,
+      "Sp. Defense": 35,
+      "Speed": 56
+    }
+  },
+  {
+    "id": 17,
+    "name": {
+      "english": "Pidgeotto",
+      "japanese": "ピジョン",
+      "chinese": "比比鸟",
+      "french": "Roucoups"
+    },
+    "description": "Very protective of its sprawling territorial area, this Pokémon will fiercely peck at any intruder.",
+    "type": ["Normal", "Flying"],
+    "base": {
+      "HP": 63,
+      "Attack": 60,
+      "Defense": 55,
+      "Sp. Attack": 50,
+      "Sp. Defense": 50,
+      "Speed": 71
+    }
+  },
+  {
+    "id": 18,
+    "name": {
+      "english": "Pidgeot",
+      "japanese": "ピジョット",
+      "chinese": "大比鸟",
+      "french": "Roucarnage"
+    },
+    "description": "When hunting, it skims the surface of water at high speed to pick off unwary prey such as Magikarp.",
+    "type": ["Normal", "Flying"],
+    "base": {
+      "HP": 83,
+      "Attack": 80,
+      "Defense": 75,
+      "Sp. Attack": 70,
+      "Sp. Defense": 70,
+      "Speed": 101
+    }
+  },
+  {
+    "id": 19,
+    "name": {
+      "english": "Rattata",
+      "japanese": "コラッタ",
+      "chinese": "小拉达",
+      "french": "Rattata"
+    },
+    "description": "Living wherever there is food available, it ceaselessly scavenges for edibles the entire day.",
+    "type": ["Normal"],
+    "base": {
+      "HP": 30,
+      "Attack": 56,
+      "Defense": 35,
+      "Sp. Attack": 25,
+      "Sp. Defense": 35,
+      "Speed": 72
+    }
+  },
+  {
+    "id": 20,
+    "name": {
+      "english": "Raticate",
+      "japanese": "ラッタ",
+      "chinese": "拉达",
+      "french": "Rattatac"
+    },
+    "description": "Its disposition is far more violent than its looks would suggest. Don't let your hand get too close to its face, as it could bite your hand clean off.",
+    "type": ["Normal"],
+    "base": {
+      "HP": 55,
+      "Attack": 81,
+      "Defense": 60,
+      "Sp. Attack": 50,
+      "Sp. Defense": 70,
+      "Speed": 97
+    }
+  },
+  {
+    "id": 21,
+    "name": {
+      "english": "Spearow",
+      "japanese": "オニスズメ",
+      "chinese": "烈雀",
+      "french": "Piafabec"
+    },
+    "description": "Inept at flying high. However, it can fly around very fast to protect its territory.",
+    "type": ["Normal", "Flying"],
+    "base": {
+      "HP": 40,
+      "Attack": 60,
+      "Defense": 30,
+      "Sp. Attack": 31,
+      "Sp. Defense": 31,
+      "Speed": 70
+    }
+  },
+  {
+    "id": 22,
+    "name": {
+      "english": "Fearow",
+      "japanese": "オニドリル",
+      "chinese": "大嘴雀",
+      "french": "Rapasdepic"
+    },
+    "description": "With its huge and magnificent wings, it can keep aloft without ever having to land for rest.",
+    "type": ["Normal", "Flying"],
+    "base": {
+      "HP": 65,
+      "Attack": 90,
+      "Defense": 65,
+      "Sp. Attack": 61,
+      "Sp. Defense": 61,
+      "Speed": 100
+    }
+  },
+  {
+    "id": 23,
+    "name": {
+      "english": "Ekans",
+      "japanese": "アーボ",
+      "chinese": "阿柏蛇",
+      "french": "Abo"
+    },
+    "description": "The older it gets, the longer it grows. At night, it wraps its long body around tree branches to rest.",
+    "type": ["Poison"],
+    "base": {
+      "HP": 35,
+      "Attack": 60,
+      "Defense": 44,
+      "Sp. Attack": 40,
+      "Sp. Defense": 54,
+      "Speed": 55
+    }
+  },
+  {
+    "id": 24,
+    "name": {
+      "english": "Arbok",
+      "japanese": "アーボック",
+      "chinese": "阿柏怪",
+      "french": "Arbok"
+    },
+    "description": "The frightening patterns on its belly have been studied. Six variations have been confirmed.",
+    "type": ["Poison"],
+    "base": {
+      "HP": 60,
+      "Attack": 95,
+      "Defense": 69,
+      "Sp. Attack": 65,
+      "Sp. Defense": 79,
+      "Speed": 80
+    }
+  },
+  {
+    "id": 25,
+    "name": {
+      "english": "Pikachu",
+      "japanese": "ピカチュウ",
+      "chinese": "皮卡丘",
+      "french": "Pikachu"
+    },
+    "description": "It raises its tail to check its surroundings. The tail is sometimes struck by lightning in this pose.",
+    "type": ["Electric"],
+    "base": {
+      "HP": 35,
+      "Attack": 55,
+      "Defense": 40,
+      "Sp. Attack": 50,
+      "Sp. Defense": 50,
+      "Speed": 90
+    }
+  },
+  {
+    "id": 26,
+    "name": {
+      "english": "Raichu",
+      "japanese": "ライチュウ",
+      "chinese": "雷丘",
+      "french": "Raichu"
+    },
+    "description": "Its long tail serves as a ground to protect itself from its own high-voltage power.",
+    "type": ["Electric"],
+    "base": {
+      "HP": 60,
+      "Attack": 90,
+      "Defense": 55,
+      "Sp. Attack": 90,
+      "Sp. Defense": 80,
+      "Speed": 110
+    }
+  },
+  {
+    "id": 27,
+    "name": {
+      "english": "Sandshrew",
+      "japanese": "サンド",
+      "chinese": "穿山鼠",
+      "french": "Sabelette"
+    },
+    "description": "It burrows and lives underground. If threatened, it curls itself up into a ball for protection.",
+    "type": ["Ground"],
+    "base": {
+      "HP": 50,
+      "Attack": 75,
+      "Defense": 85,
+      "Sp. Attack": 20,
+      "Sp. Defense": 30,
+      "Speed": 40
+    }
+  },
+  {
+    "id": 28,
+    "name": {
+      "english": "Sandslash",
+      "japanese": "サンドパン",
+      "chinese": "穿山王",
+      "french": "Sablaireau"
+    },
+    "description": "In an attempt to hide itself, it will run around at top speed to kick up a blinding dust storm.",
+    "type": ["Ground"],
+    "base": {
+      "HP": 75,
+      "Attack": 100,
+      "Defense": 110,
+      "Sp. Attack": 45,
+      "Sp. Defense": 55,
+      "Speed": 65
+    }
+  },
+  {
+    "id": 29,
+    "name": {
+      "english": "Nidoran♀",
+      "japanese": "ニドラン♀",
+      "chinese": "尼多兰",
+      "french": "Nidoran♀"
+    },
+    "description": "Although small, its venomous barbs render this Pokémon dangerous to approach.",
+    "type": ["Poison"],
+    "base": {
+      "HP": 55,
+      "Attack": 47,
+      "Defense": 52,
+      "Sp. Attack": 40,
+      "Sp. Defense": 40,
+      "Speed": 41
+    }
+  },
+  {
+    "id": 30,
+    "name": {
+      "english": "Nidorina",
+      "japanese": "ニドリーナ",
+      "chinese": "尼多娜",
+      "french": "Nidorina"
+    },
+    "description": "The female’s horn develops slowly. Prefers physical attacks such as clawing and biting.",
+    "type": ["Poison"],
+    "base": {
+      "HP": 70,
+      "Attack": 62,
+      "Defense": 67,
+      "Sp. Attack": 55,
+      "Sp. Defense": 55,
+      "Speed": 56
+    }
+  },
+  {
+    "id": 31,
+    "name": {
+      "english": "Nidoqueen",
+      "japanese": "ニドクイン",
+      "chinese": "尼多后",
+      "french": "Nidoqueen"
+    },
+    "description": "Its hard scales provide strong protection. It uses its hefty bulk to execute powerful moves.",
+    "type": ["Poison", "Ground"],
+    "base": {
+      "HP": 90,
+      "Attack": 92,
+      "Defense": 87,
+      "Sp. Attack": 75,
+      "Sp. Defense": 85,
+      "Speed": 76
+    }
+  },
+  {
+    "id": 32,
+    "name": {
+      "english": "Nidoran♂",
+      "japanese": "ニドラン♂",
+      "chinese": "尼多朗",
+      "french": "Nidoran♂"
+    },
+    "description": "Stiffens its ears to sense danger. The larger its horns, the more powerful its secreted venom.",
+    "type": ["Poison"],
+    "base": {
+      "HP": 46,
+      "Attack": 57,
+      "Defense": 40,
+      "Sp. Attack": 40,
+      "Sp. Defense": 40,
+      "Speed": 50
+    }
+  },
+  {
+    "id": 33,
+    "name": {
+      "english": "Nidorino",
+      "japanese": "ニドリーノ",
+      "chinese": "尼多力诺",
+      "french": "Nidorino"
+    },
+    "description": "An aggressive Pokémon that is quick to attack. The horn on its head secretes a powerful venom.",
+    "type": ["Poison"],
+    "base": {
+      "HP": 61,
+      "Attack": 72,
+      "Defense": 57,
+      "Sp. Attack": 55,
+      "Sp. Defense": 55,
+      "Speed": 65
+    }
+  },
+  {
+    "id": 34,
+    "name": {
+      "english": "Nidoking",
+      "japanese": "ニドキング",
+      "chinese": "尼多王",
+      "french": "Nidoking"
+    },
+    "description": "One swing of its mighty tail can snap a telephone pole as if it were a matchstick.",
+    "type": ["Poison", "Ground"],
+    "base": {
+      "HP": 81,
+      "Attack": 102,
+      "Defense": 77,
+      "Sp. Attack": 85,
+      "Sp. Defense": 75,
+      "Speed": 85
+    }
+  },
+  {
+    "id": 35,
+    "name": {
+      "english": "Clefairy",
+      "japanese": "ピッピ",
+      "chinese": "皮皮",
+      "french": "Mélofée"
+    },
+    "description": "Its magical and cute appeal has many admirers. It is rare and found only in certain areas.",
+    "type": ["Fairy"],
+    "base": {
+      "HP": 70,
+      "Attack": 45,
+      "Defense": 48,
+      "Sp. Attack": 60,
+      "Sp. Defense": 65,
+      "Speed": 35
+    }
+  },
+  {
+    "id": 36,
+    "name": {
+      "english": "Clefable",
+      "japanese": "ピクシー",
+      "chinese": "皮可西",
+      "french": "Mélodelfe"
+    },
+    "description": "A timid fairy Pokémon that is rarely seen. It will run and hide the moment it senses people.",
+    "type": ["Fairy"],
+    "base": {
+      "HP": 95,
+      "Attack": 70,
+      "Defense": 73,
+      "Sp. Attack": 95,
+      "Sp. Defense": 90,
+      "Speed": 60
+    }
+  },
+  {
+    "id": 37,
+    "name": {
+      "english": "Vulpix",
+      "japanese": "ロコン",
+      "chinese": "六尾",
+      "french": "Goupix"
+    },
+    "description": "At the time of its birth, Vulpix has one white tail. The tail separates into six if this Pokémon receives plenty of love from its Trainer.",
+    "type": ["Fire"],
+    "base": {
+      "HP": 38,
+      "Attack": 41,
+      "Defense": 40,
+      "Sp. Attack": 50,
+      "Sp. Defense": 65,
+      "Speed": 65
+    }
+  },
+  {
+    "id": 38,
+    "name": {
+      "english": "Ninetales",
+      "japanese": "キュウコン",
+      "chinese": "九尾",
+      "french": "Feunard"
+    },
+    "description": "Very smart and very vengeful. Grabbing one of its many tails could result in a 1000-year curse.",
+    "type": ["Fire"],
+    "base": {
+      "HP": 73,
+      "Attack": 76,
+      "Defense": 75,
+      "Sp. Attack": 81,
+      "Sp. Defense": 100,
+      "Speed": 100
+    }
+  },
+  {
+    "id": 39,
+    "name": {
+      "english": "Jigglypuff",
+      "japanese": "プリン",
+      "chinese": "胖丁",
+      "french": "Rondoudou"
+    },
+    "description": "When its huge eyes light up, it sings a mysteriously soothing melody that lulls its enemies to sleep.",
+    "type": ["Normal", "Fairy"],
+    "base": {
+      "HP": 115,
+      "Attack": 45,
+      "Defense": 20,
+      "Sp. Attack": 45,
+      "Sp. Defense": 25,
+      "Speed": 20
+    }
+  },
+  {
+    "id": 40,
+    "name": {
+      "english": "Wigglytuff",
+      "japanese": "プクリン",
+      "chinese": "胖可丁",
+      "french": "Grodoudou"
+    },
+    "description": "Their fur feels so good that if two of them snuggle together, they won’t want to be separated.",
+    "type": ["Normal", "Fairy"],
+    "base": {
+      "HP": 140,
+      "Attack": 70,
+      "Defense": 45,
+      "Sp. Attack": 85,
+      "Sp. Defense": 50,
+      "Speed": 45
+    }
+  },
+  {
+    "id": 41,
+    "name": {
+      "english": "Zubat",
+      "japanese": "ズバット",
+      "chinese": "超音蝠",
+      "french": "Nosferapti"
+    },
+    "description": "Emits ultrasonic cries while it flies. They act as a sonar used to check for objects in its way.",
+    "type": ["Poison", "Flying"],
+    "base": {
+      "HP": 40,
+      "Attack": 45,
+      "Defense": 35,
+      "Sp. Attack": 30,
+      "Sp. Defense": 40,
+      "Speed": 55
+    }
+  },
+  {
+    "id": 42,
+    "name": {
+      "english": "Golbat",
+      "japanese": "ゴルバット",
+      "chinese": "大嘴蝠",
+      "french": "Nosferalto"
+    },
+    "description": "However hard its victim’s hide may be, it punctures with sharp fangs and gorges itself with blood.",
+    "type": ["Poison", "Flying"],
+    "base": {
+      "HP": 75,
+      "Attack": 80,
+      "Defense": 70,
+      "Sp. Attack": 65,
+      "Sp. Defense": 75,
+      "Speed": 90
+    }
+  },
+  {
+    "id": 43,
+    "name": {
+      "english": "Oddish",
+      "japanese": "ナゾノクサ",
+      "chinese": "走路草",
+      "french": "Mystherbe"
+    },
+    "description": "During the day, it stays in the cold underground to avoid the sun. It grows by bathing in moonlight.",
+    "type": ["Grass", "Poison"],
+    "base": {
+      "HP": 45,
+      "Attack": 50,
+      "Defense": 55,
+      "Sp. Attack": 75,
+      "Sp. Defense": 65,
+      "Speed": 30
+    }
+  },
+  {
+    "id": 44,
+    "name": {
+      "english": "Gloom",
+      "japanese": "クサイハナ",
+      "chinese": "臭臭花",
+      "french": "Ortide"
+    },
+    "description": "The fluid that oozes from its mouth isn’t drool. It is a nectar that is used to attract prey.",
+    "type": ["Grass", "Poison"],
+    "base": {
+      "HP": 60,
+      "Attack": 65,
+      "Defense": 70,
+      "Sp. Attack": 85,
+      "Sp. Defense": 75,
+      "Speed": 40
+    }
+  },
+  {
+    "id": 45,
+    "name": {
+      "english": "Vileplume",
+      "japanese": "ラフレシア",
+      "chinese": "霸王花",
+      "french": "Rafflesia"
+    },
+    "description": "The larger its petals, the more toxic pollen it contains. Its big head is heavy and hard to hold up.",
+    "type": ["Grass", "Poison"],
+    "base": {
+      "HP": 75,
+      "Attack": 80,
+      "Defense": 85,
+      "Sp. Attack": 110,
+      "Sp. Defense": 90,
+      "Speed": 50
+    }
+  },
+  {
+    "id": 46,
+    "name": {
+      "english": "Paras",
+      "japanese": "パラス",
+      "chinese": "派拉斯",
+      "french": "Paras"
+    },
+    "description": "Burrows to suck tree roots. The mushrooms on its back grow by drawing nutrients from the bug host.",
+    "type": ["Bug", "Grass"],
+    "base": {
+      "HP": 35,
+      "Attack": 70,
+      "Defense": 55,
+      "Sp. Attack": 45,
+      "Sp. Defense": 55,
+      "Speed": 25
+    }
+  },
+  {
+    "id": 47,
+    "name": {
+      "english": "Parasect",
+      "japanese": "パラセクト",
+      "chinese": "派拉斯特",
+      "french": "Parasect"
+    },
+    "description": "A host-parasite pair in which the parasite mushroom has taken over the host bug. Prefers damp places.",
+    "type": ["Bug", "Grass"],
+    "base": {
+      "HP": 60,
+      "Attack": 95,
+      "Defense": 80,
+      "Sp. Attack": 60,
+      "Sp. Defense": 80,
+      "Speed": 30
+    }
+  },
+  {
+    "id": 48,
+    "name": {
+      "english": "Venonat",
+      "japanese": "コンパン",
+      "chinese": "毛球",
+      "french": "Mimitoss"
+    },
+    "description": "Lives in the shadows of tall trees where it eats bugs. It is attracted by light at night.",
+    "type": ["Bug", "Poison"],
+    "base": {
+      "HP": 60,
+      "Attack": 55,
+      "Defense": 50,
+      "Sp. Attack": 40,
+      "Sp. Defense": 55,
+      "Speed": 45
+    }
+  },
+  {
+    "id": 49,
+    "name": {
+      "english": "Venomoth",
+      "japanese": "モルフォン",
+      "chinese": "摩鲁蛾",
+      "french": "Aéromite"
+    },
+    "description": "The dust-like scales covering its wings are color coded to indicate the kinds of poison it has.",
+    "type": ["Bug", "Poison"],
+    "base": {
+      "HP": 70,
+      "Attack": 65,
+      "Defense": 60,
+      "Sp. Attack": 90,
+      "Sp. Defense": 75,
+      "Speed": 90
+    }
+  },
+  {
+    "id": 50,
+    "name": {
+      "english": "Diglett",
+      "japanese": "ディグダ",
+      "chinese": "地鼠",
+      "french": "Taupiqueur"
+    },
+    "description": "Lives about one yard underground where it feeds on plant roots. It sometimes appears above ground.",
+    "type": ["Ground"],
+    "base": {
+      "HP": 10,
+      "Attack": 55,
+      "Defense": 25,
+      "Sp. Attack": 35,
+      "Sp. Defense": 45,
+      "Speed": 95
+    }
+  },
+  {
+    "id": 51,
+    "name": {
+      "english": "Dugtrio",
+      "japanese": "ダグトリオ",
+      "chinese": "三地鼠",
+      "french": "Triopikeur"
+    },
+    "description": "A team of Diglett triplets. It triggers huge earthquakes by burrowing 60 miles underground.",
+    "type": ["Ground"],
+    "base": {
+      "HP": 35,
+      "Attack": 100,
+      "Defense": 50,
+      "Sp. Attack": 50,
+      "Sp. Defense": 70,
+      "Speed": 120
+    }
+  },
+  {
+    "id": 52,
+    "name": {
+      "english": "Meowth",
+      "japanese": "ニャース",
+      "chinese": "喵喵",
+      "french": "Miaouss"
+    },
+    "description": "Adores round objects. It wanders the streets on a nightly basis to look for dropped loose change.",
+    "type": ["Normal"],
+    "base": {
+      "HP": 40,
+      "Attack": 45,
+      "Defense": 35,
+      "Sp. Attack": 40,
+      "Sp. Defense": 40,
+      "Speed": 90
+    }
+  },
+  {
+    "id": 53,
+    "name": {
+      "english": "Persian",
+      "japanese": "ペルシアン",
+      "chinese": "猫老大",
+      "french": "Persian"
+    },
+    "description": "Although its fur has many admirers, it is tough to raise as a pet because of its fickle meanness.",
+    "type": ["Normal"],
+    "base": {
+      "HP": 65,
+      "Attack": 70,
+      "Defense": 60,
+      "Sp. Attack": 65,
+      "Sp. Defense": 65,
+      "Speed": 115
+    }
+  },
+  {
+    "id": 54,
+    "name": {
+      "english": "Psyduck",
+      "japanese": "コダック",
+      "chinese": "可达鸭",
+      "french": "Psykokwak"
+    },
+    "description": "While lulling its enemies with its vacant look, this wily Pokémon will use psychokinetic powers.",
+    "type": ["Water"],
+    "base": {
+      "HP": 50,
+      "Attack": 52,
+      "Defense": 48,
+      "Sp. Attack": 65,
+      "Sp. Defense": 50,
+      "Speed": 55
+    }
+  },
+  {
+    "id": 55,
+    "name": {
+      "english": "Golduck",
+      "japanese": "ゴルダック",
+      "chinese": "哥达鸭",
+      "french": "Akwakwak"
+    },
+    "description": "Often seen swimming elegantly by lakeshores. It is often mistaken for the Japanese monster, Kappa.",
+    "type": ["Water"],
+    "base": {
+      "HP": 80,
+      "Attack": 82,
+      "Defense": 78,
+      "Sp. Attack": 95,
+      "Sp. Defense": 80,
+      "Speed": 85
+    }
+  },
+  {
+    "id": 56,
+    "name": {
+      "english": "Mankey",
+      "japanese": "マンキー",
+      "chinese": "猴怪",
+      "french": "Férosinge"
+    },
+    "description": "Extremely quick to anger. It could be docile one moment then thrashing away the next instant.",
+    "type": ["Fighting"],
+    "base": {
+      "HP": 40,
+      "Attack": 80,
+      "Defense": 35,
+      "Sp. Attack": 35,
+      "Sp. Defense": 45,
+      "Speed": 70
+    }
+  },
+  {
+    "id": 57,
+    "name": {
+      "english": "Primeape",
+      "japanese": "オコリザル",
+      "chinese": "火暴猴",
+      "french": "Colossinge"
+    },
+    "description": "Always furious and tenacious to boot. It will not abandon chasing its quarry until it is caught.",
+    "type": ["Fighting"],
+    "base": {
+      "HP": 65,
+      "Attack": 105,
+      "Defense": 60,
+      "Sp. Attack": 60,
+      "Sp. Defense": 70,
+      "Speed": 95
+    }
+  },
+  {
+    "id": 58,
+    "name": {
+      "english": "Growlithe",
+      "japanese": "ガーディ",
+      "chinese": "卡蒂狗",
+      "french": "Caninos"
+    },
+    "description": "Very protective of its territory. It will bark and bite to repel intruders from its space.",
+    "type": ["Fire"],
+    "base": {
+      "HP": 55,
+      "Attack": 70,
+      "Defense": 45,
+      "Sp. Attack": 70,
+      "Sp. Defense": 50,
+      "Speed": 60
+    }
+  },
+  {
+    "id": 59,
+    "name": {
+      "english": "Arcanine",
+      "japanese": "ウインディ",
+      "chinese": "风速狗",
+      "french": "Arcanin"
+    },
+    "description": "A Pokémon that has long been admired for its beauty. It runs agilely as if on wings.",
+    "type": ["Fire"],
+    "base": {
+      "HP": 90,
+      "Attack": 110,
+      "Defense": 80,
+      "Sp. Attack": 100,
+      "Sp. Defense": 80,
+      "Speed": 95
+    }
+  },
+  {
+    "id": 60,
+    "name": {
+      "english": "Poliwag",
+      "japanese": "ニョロモ",
+      "chinese": "蚊香蝌蚪",
+      "french": "Ptitard"
+    },
+    "description": "Its newly grown legs prevent it from running. It appears to prefer swimming than trying to stand.",
+    "type": ["Water"],
+    "base": {
+      "HP": 40,
+      "Attack": 50,
+      "Defense": 40,
+      "Sp. Attack": 40,
+      "Sp. Defense": 40,
+      "Speed": 90
+    }
+  },
+  {
+    "id": 61,
+    "name": {
+      "english": "Poliwhirl",
+      "japanese": "ニョロゾ",
+      "chinese": "蚊香君",
+      "french": "Têtarte"
+    },
+    "description": "Capable of living in or out of water. When out of water, it sweats to keep its body slimy.",
+    "type": ["Water"],
+    "base": {
+      "HP": 65,
+      "Attack": 65,
+      "Defense": 65,
+      "Sp. Attack": 50,
+      "Sp. Defense": 50,
+      "Speed": 90
+    }
+  },
+  {
+    "id": 62,
+    "name": {
+      "english": "Poliwrath",
+      "japanese": "ニョロボン",
+      "chinese": "蚊香泳士",
+      "french": "Tartard"
+    },
+    "description": "An adept swimmer at both the front crawl and breaststroke. Easily overtakes the best human swimmers.",
+    "type": ["Water", "Fighting"],
+    "base": {
+      "HP": 90,
+      "Attack": 95,
+      "Defense": 95,
+      "Sp. Attack": 70,
+      "Sp. Defense": 90,
+      "Speed": 70
+    }
+  },
+  {
+    "id": 63,
+    "name": {
+      "english": "Abra",
+      "japanese": "ケーシィ",
+      "chinese": "凯西",
+      "french": "Abra"
+    },
+    "description": "Using its ability to read minds, it will identify impending danger and Teleport to safety.",
+    "type": ["Psychic"],
+    "base": {
+      "HP": 25,
+      "Attack": 20,
+      "Defense": 15,
+      "Sp. Attack": 105,
+      "Sp. Defense": 55,
+      "Speed": 90
+    }
+  },
+  {
+    "id": 64,
+    "name": {
+      "english": "Kadabra",
+      "japanese": "ユンゲラー",
+      "chinese": "勇基拉",
+      "french": "Kadabra"
+    },
+    "description": "It emits special alpha waves from its body that induce headaches just by being close by.",
+    "type": ["Psychic"],
+    "base": {
+      "HP": 40,
+      "Attack": 35,
+      "Defense": 30,
+      "Sp. Attack": 120,
+      "Sp. Defense": 70,
+      "Speed": 105
+    }
+  },
+  {
+    "id": 65,
+    "name": {
+      "english": "Alakazam",
+      "japanese": "フーディン",
+      "chinese": "胡地",
+      "french": "Alakazam"
+    },
+    "description": "Its brain can outperform a supercomputer. Its intelligence quotient is said to be 5,000.",
+    "type": ["Psychic"],
+    "base": {
+      "HP": 55,
+      "Attack": 50,
+      "Defense": 45,
+      "Sp. Attack": 135,
+      "Sp. Defense": 95,
+      "Speed": 120
+    }
+  },
+  {
+    "id": 66,
+    "name": {
+      "english": "Machop",
+      "japanese": "ワンリキー",
+      "chinese": "腕力",
+      "french": "Machoc"
+    },
+    "description": "Loves to build its muscles. It trains in all styles of martial arts to become even stronger.",
+    "type": ["Fighting"],
+    "base": {
+      "HP": 70,
+      "Attack": 80,
+      "Defense": 50,
+      "Sp. Attack": 35,
+      "Sp. Defense": 35,
+      "Speed": 35
+    }
+  },
+  {
+    "id": 67,
+    "name": {
+      "english": "Machoke",
+      "japanese": "ゴーリキー",
+      "chinese": "豪力",
+      "french": "Machopeur"
+    },
+    "description": "Its muscular body is so powerful, it must wear a power-save belt to be able to regulate its motions.",
+    "type": ["Fighting"],
+    "base": {
+      "HP": 80,
+      "Attack": 100,
+      "Defense": 70,
+      "Sp. Attack": 50,
+      "Sp. Defense": 60,
+      "Speed": 45
+    }
+  },
+  {
+    "id": 68,
+    "name": {
+      "english": "Machamp",
+      "japanese": "カイリキー",
+      "chinese": "怪力",
+      "french": "Mackogneur"
+    },
+    "description": "Using its heavy muscles, it throws powerful punches that can send the victim clear over the horizon.",
+    "type": ["Fighting"],
+    "base": {
+      "HP": 90,
+      "Attack": 130,
+      "Defense": 80,
+      "Sp. Attack": 65,
+      "Sp. Defense": 85,
+      "Speed": 55
+    }
+  },
+  {
+    "id": 69,
+    "name": {
+      "english": "Bellsprout",
+      "japanese": "マダツボミ",
+      "chinese": "喇叭芽",
+      "french": "Chétiflor"
+    },
+    "description": "A carnivorous Pokémon that traps and eats bugs. It uses its root feet to soak up needed moisture.",
+    "type": ["Grass", "Poison"],
+    "base": {
+      "HP": 50,
+      "Attack": 75,
+      "Defense": 35,
+      "Sp. Attack": 70,
+      "Sp. Defense": 30,
+      "Speed": 40
+    }
+  },
+  {
+    "id": 70,
+    "name": {
+      "english": "Weepinbell",
+      "japanese": "ウツドン",
+      "chinese": "口呆花",
+      "french": "Boustiflor"
+    },
+    "description": "It spits out poison powder to immobilize the enemy and then finishes it with a spray of acid.",
+    "type": ["Grass", "Poison"],
+    "base": {
+      "HP": 65,
+      "Attack": 90,
+      "Defense": 50,
+      "Sp. Attack": 85,
+      "Sp. Defense": 45,
+      "Speed": 55
+    }
+  },
+  {
+    "id": 71,
+    "name": {
+      "english": "Victreebel",
+      "japanese": "ウツボット",
+      "chinese": "大食花",
+      "french": "Empiflor"
+    },
+    "description": "Said to live in huge colonies deep in jungles, although no one has ever returned from there.",
+    "type": ["Grass", "Poison"],
+    "base": {
+      "HP": 80,
+      "Attack": 105,
+      "Defense": 65,
+      "Sp. Attack": 100,
+      "Sp. Defense": 70,
+      "Speed": 70
+    }
+  },
+  {
+    "id": 72,
+    "name": {
+      "english": "Tentacool",
+      "japanese": "メノクラゲ",
+      "chinese": "玛瑙水母",
+      "french": "Tentacool"
+    },
+    "description": "Drifts in shallow seas. Anglers who hook them by accident are often punished by its stinging acid.",
+    "type": ["Water", "Poison"],
+    "base": {
+      "HP": 40,
+      "Attack": 40,
+      "Defense": 35,
+      "Sp. Attack": 50,
+      "Sp. Defense": 100,
+      "Speed": 70
+    }
+  },
+  {
+    "id": 73,
+    "name": {
+      "english": "Tentacruel",
+      "japanese": "ドククラゲ",
+      "chinese": "毒刺水母",
+      "french": "Tentacruel"
+    },
+    "description": "The tentacles are normally kept short. On hunts, they are extended to ensnare and immobilize prey.",
+    "type": ["Water", "Poison"],
+    "base": {
+      "HP": 80,
+      "Attack": 70,
+      "Defense": 65,
+      "Sp. Attack": 80,
+      "Sp. Defense": 120,
+      "Speed": 100
+    }
+  },
+  {
+    "id": 74,
+    "name": {
+      "english": "Geodude",
+      "japanese": "イシツブテ",
+      "chinese": "小拳石",
+      "french": "Racaillou"
+    },
+    "description": "Found in fields and mountains. Mistaking them for boulders, people often step or trip on them.",
+    "type": ["Rock", "Ground"],
+    "base": {
+      "HP": 40,
+      "Attack": 80,
+      "Defense": 100,
+      "Sp. Attack": 30,
+      "Sp. Defense": 30,
+      "Speed": 20
+    }
+  },
+  {
+    "id": 75,
+    "name": {
+      "english": "Graveler",
+      "japanese": "ゴローン",
+      "chinese": "隆隆石",
+      "french": "Gravalanch"
+    },
+    "description": "Rolls down slopes to move. It rolls over any obstacle without slowing or changing its direction.",
+    "type": ["Rock", "Ground"],
+    "base": {
+      "HP": 55,
+      "Attack": 95,
+      "Defense": 115,
+      "Sp. Attack": 45,
+      "Sp. Defense": 45,
+      "Speed": 35
+    }
+  },
+  {
+    "id": 76,
+    "name": {
+      "english": "Golem",
+      "japanese": "ゴローニャ",
+      "chinese": "隆隆岩",
+      "french": "Grolem"
+    },
+    "description": "Its boulder-like body is extremely hard. It can easily withstand dynamite blasts without damage.",
+    "type": ["Rock", "Ground"],
+    "base": {
+      "HP": 80,
+      "Attack": 120,
+      "Defense": 130,
+      "Sp. Attack": 55,
+      "Sp. Defense": 65,
+      "Speed": 45
+    }
+  },
+  {
+    "id": 77,
+    "name": {
+      "english": "Ponyta",
+      "japanese": "ポニータ",
+      "chinese": "小火马",
+      "french": "Ponyta"
+    },
+    "description": "As a newborn, it can barely stand. However, through galloping, its legs are made tougher and faster.",
+    "type": ["Fire"],
+    "base": {
+      "HP": 50,
+      "Attack": 85,
+      "Defense": 55,
+      "Sp. Attack": 65,
+      "Sp. Defense": 65,
+      "Speed": 90
+    }
+  },
+  {
+    "id": 78,
+    "name": {
+      "english": "Rapidash",
+      "japanese": "ギャロップ",
+      "chinese": "烈焰马",
+      "french": "Galopa"
+    },
+    "description": "Very competitive, this Pokémon will chase anything that moves fast in the hopes of racing it.",
+    "type": ["Fire"],
+    "base": {
+      "HP": 65,
+      "Attack": 100,
+      "Defense": 70,
+      "Sp. Attack": 80,
+      "Sp. Defense": 80,
+      "Speed": 105
+    }
+  },
+  {
+    "id": 79,
+    "name": {
+      "english": "Slowpoke",
+      "japanese": "ヤドン",
+      "chinese": "呆呆兽",
+      "french": "Ramoloss"
+    },
+    "description": "Incredibly slow and sluggish. It is quite content to loll about without worrying about the time.",
+    "type": ["Water", "Psychic"],
+    "base": {
+      "HP": 90,
+      "Attack": 65,
+      "Defense": 65,
+      "Sp. Attack": 40,
+      "Sp. Defense": 40,
+      "Speed": 15
+    }
+  },
+  {
+    "id": 80,
+    "name": {
+      "english": "Slowbro",
+      "japanese": "ヤドラン",
+      "chinese": "呆壳兽",
+      "french": "Flagadoss"
+    },
+    "description": "The Shellder that latches onto Slowbro’s tail is said to feed on the host’s leftover scraps.",
+    "type": ["Water", "Psychic"],
+    "base": {
+      "HP": 95,
+      "Attack": 75,
+      "Defense": 110,
+      "Sp. Attack": 100,
+      "Sp. Defense": 80,
+      "Speed": 30
+    }
+  },
+  {
+    "id": 81,
+    "name": {
+      "english": "Magnemite",
+      "japanese": "コイル",
+      "chinese": "小磁怪",
+      "french": "Magnéti"
+    },
+    "description": "Uses anti-gravity to stay suspended. Appears without warning and uses Thunder Wave and similar moves.",
+    "type": ["Electric", "Steel"],
+    "base": {
+      "HP": 25,
+      "Attack": 35,
+      "Defense": 70,
+      "Sp. Attack": 95,
+      "Sp. Defense": 55,
+      "Speed": 45
+    }
+  },
+  {
+    "id": 82,
+    "name": {
+      "english": "Magneton",
+      "japanese": "レアコイル",
+      "chinese": "三合一磁怪",
+      "french": "Magnéton"
+    },
+    "description": "Formed by several Magnemite linked together. They frequently appear when sunspots flare up.",
+    "type": ["Electric", "Steel"],
+    "base": {
+      "HP": 50,
+      "Attack": 60,
+      "Defense": 95,
+      "Sp. Attack": 120,
+      "Sp. Defense": 70,
+      "Speed": 70
+    }
+  },
+  {
+    "id": 83,
+    "name": {
+      "english": "Farfetch'd",
+      "japanese": "カモネギ",
+      "chinese": "大葱鸭",
+      "french": "Canarticho"
+    },
+    "description": "The plant stalk it holds is its weapon. The stalk is used like a sword to cut all sorts of things.",
+    "type": ["Normal", "Flying"],
+    "base": {
+      "HP": 52,
+      "Attack": 90,
+      "Defense": 55,
+      "Sp. Attack": 58,
+      "Sp. Defense": 62,
+      "Speed": 60
+    }
+  },
+  {
+    "id": 84,
+    "name": {
+      "english": "Doduo",
+      "japanese": "ドードー",
+      "chinese": "嘟嘟",
+      "french": "Doduo"
+    },
+    "description": "A bird that makes up for its poor flying with its fast foot speed. Leaves giant footprints.",
+    "type": ["Normal", "Flying"],
+    "base": {
+      "HP": 35,
+      "Attack": 85,
+      "Defense": 45,
+      "Sp. Attack": 35,
+      "Sp. Defense": 35,
+      "Speed": 75
+    }
+  },
+  {
+    "id": 85,
+    "name": {
+      "english": "Dodrio",
+      "japanese": "ドードリオ",
+      "chinese": "嘟嘟利",
+      "french": "Dodrio"
+    },
+    "description": "One of Doduo's 2 heads splits to form a unique species. It runs close to 40 MPH in prairies.",
+    "type": ["Normal", "Flying"],
+    "base": {
+      "HP": 60,
+      "Attack": 110,
+      "Defense": 70,
+      "Sp. Attack": 60,
+      "Sp. Defense": 60,
+      "Speed": 110
+    }
+  },
+  {
+    "id": 86,
+    "name": {
+      "english": "Seel",
+      "japanese": "パウワウ",
+      "chinese": "小海狮",
+      "french": "Otaria"
+    },
+    "description": "The protruding horn on its head is very hard. It is used for bashing through thick ice.",
+    "type": ["Water"],
+    "base": {
+      "HP": 65,
+      "Attack": 45,
+      "Defense": 55,
+      "Sp. Attack": 45,
+      "Sp. Defense": 70,
+      "Speed": 45
+    }
+  },
+  {
+    "id": 87,
+    "name": {
+      "english": "Dewgong",
+      "japanese": "ジュゴン",
+      "chinese": "白海狮",
+      "french": "Lamantine"
+    },
+    "description": "Stores thermal energy in its body. Swims at a steady 8 knots even in intensely cold waters.",
+    "type": ["Water", "Ice"],
+    "base": {
+      "HP": 90,
+      "Attack": 70,
+      "Defense": 80,
+      "Sp. Attack": 70,
+      "Sp. Defense": 95,
+      "Speed": 70
+    }
+  },
+  {
+    "id": 88,
+    "name": {
+      "english": "Grimer",
+      "japanese": "ベトベター",
+      "chinese": "臭泥",
+      "french": "Tadmorv"
+    },
+    "description": "Appears in filthy areas. Thrives by sucking up polluted sludge that is pumped out of factories.",
+    "type": ["Poison"],
+    "base": {
+      "HP": 80,
+      "Attack": 80,
+      "Defense": 50,
+      "Sp. Attack": 40,
+      "Sp. Defense": 50,
+      "Speed": 25
+    }
+  },
+  {
+    "id": 89,
+    "name": {
+      "english": "Muk",
+      "japanese": "ベトベトン",
+      "chinese": "臭臭泥",
+      "french": "Grotadmorv"
+    },
+    "description": "Thickly covered with a filthy, vile sludge. It is so toxic, even its footprints contain poison.",
+    "type": ["Poison"],
+    "base": {
+      "HP": 105,
+      "Attack": 105,
+      "Defense": 75,
+      "Sp. Attack": 65,
+      "Sp. Defense": 100,
+      "Speed": 50
+    }
+  },
+  {
+    "id": 90,
+    "name": {
+      "english": "Shellder",
+      "japanese": "シェルダー",
+      "chinese": "大舌贝",
+      "french": "Kokiyas"
+    },
+    "description": "Its hard shell repels any kind of attack. It is vulnerable only when its shell is open.",
+    "type": ["Water"],
+    "base": {
+      "HP": 30,
+      "Attack": 65,
+      "Defense": 100,
+      "Sp. Attack": 45,
+      "Sp. Defense": 25,
+      "Speed": 40
+    }
+  },
+  {
+    "id": 91,
+    "name": {
+      "english": "Cloyster",
+      "japanese": "パルシェン",
+      "chinese": "刺甲贝",
+      "french": "Crustabri"
+    },
+    "description": "When attacked, it launches its horns in quick volleys. Its innards have never been seen.",
+    "type": ["Water", "Ice"],
+    "base": {
+      "HP": 50,
+      "Attack": 95,
+      "Defense": 180,
+      "Sp. Attack": 85,
+      "Sp. Defense": 45,
+      "Speed": 70
+    }
+  },
+  {
+    "id": 92,
+    "name": {
+      "english": "Gastly",
+      "japanese": "ゴース",
+      "chinese": "鬼斯",
+      "french": "Fantominus"
+    },
+    "description": "Almost invisible, this gaseous Pokémon cloaks the target and puts it to sleep without notice.",
+    "type": ["Ghost", "Poison"],
+    "base": {
+      "HP": 30,
+      "Attack": 35,
+      "Defense": 30,
+      "Sp. Attack": 100,
+      "Sp. Defense": 35,
+      "Speed": 80
+    }
+  },
+  {
+    "id": 93,
+    "name": {
+      "english": "Haunter",
+      "japanese": "ゴースト",
+      "chinese": "鬼斯通",
+      "french": "Spectrum"
+    },
+    "description": "Because of its ability to slip through block walls, it is said to be from another dimension.",
+    "type": ["Ghost", "Poison"],
+    "base": {
+      "HP": 45,
+      "Attack": 50,
+      "Defense": 45,
+      "Sp. Attack": 115,
+      "Sp. Defense": 55,
+      "Speed": 95
+    }
+  },
+  {
+    "id": 94,
+    "name": {
+      "english": "Gengar",
+      "japanese": "ゲンガー",
+      "chinese": "耿鬼",
+      "french": "Ectoplasma"
+    },
+    "description": "Under a full moon, this Pokémon likes to mimic the shadows of people and laugh at their fright.",
+    "type": ["Ghost", "Poison"],
+    "base": {
+      "HP": 60,
+      "Attack": 65,
+      "Defense": 60,
+      "Sp. Attack": 130,
+      "Sp. Defense": 75,
+      "Speed": 110
+    }
+  },
+  {
+    "id": 95,
+    "name": {
+      "english": "Onix",
+      "japanese": "イワーク",
+      "chinese": "大岩蛇",
+      "french": "Onix"
+    },
+    "description": "As it grows, the stone portions of its body harden to become similar to a diamond, but colored black.",
+    "type": ["Rock", "Ground"],
+    "base": {
+      "HP": 35,
+      "Attack": 45,
+      "Defense": 160,
+      "Sp. Attack": 30,
+      "Sp. Defense": 45,
+      "Speed": 70
+    }
+  },
+  {
+    "id": 96,
+    "name": {
+      "english": "Drowzee",
+      "japanese": "スリープ",
+      "chinese": "催眠貘",
+      "french": "Soporifik"
+    },
+    "description": "Puts enemies to sleep, then eats their dreams. Occasionally gets sick from eating bad dreams.",
+    "type": ["Psychic"],
+    "base": {
+      "HP": 60,
+      "Attack": 48,
+      "Defense": 45,
+      "Sp. Attack": 43,
+      "Sp. Defense": 90,
+      "Speed": 42
+    }
+  },
+  {
+    "id": 97,
+    "name": {
+      "english": "Hypno",
+      "japanese": "スリーパー",
+      "chinese": "引梦貘人",
+      "french": "Hypnomade"
+    },
+    "description": "When it locks eyes with an enemy, it will use a mix of PSI moves such as Hypnosis and Confusion.",
+    "type": ["Psychic"],
+    "base": {
+      "HP": 85,
+      "Attack": 73,
+      "Defense": 70,
+      "Sp. Attack": 73,
+      "Sp. Defense": 115,
+      "Speed": 67
+    }
+  },
+  {
+    "id": 98,
+    "name": {
+      "english": "Krabby",
+      "japanese": "クラブ",
+      "chinese": "大钳蟹",
+      "french": "Krabby"
+    },
+    "description": "Its pincers are not only powerful weapons, they are used for balance when walking sideways.",
+    "type": ["Water"],
+    "base": {
+      "HP": 30,
+      "Attack": 105,
+      "Defense": 90,
+      "Sp. Attack": 25,
+      "Sp. Defense": 25,
+      "Speed": 50
+    }
+  },
+  {
+    "id": 99,
+    "name": {
+      "english": "Kingler",
+      "japanese": "キングラー",
+      "chinese": "巨钳蟹",
+      "french": "Krabboss"
+    },
+    "description": "The large pincer has 10000 hp of crushing power. However, its huge size makes it unwieldy to use.",
+    "type": ["Water"],
+    "base": {
+      "HP": 55,
+      "Attack": 130,
+      "Defense": 115,
+      "Sp. Attack": 50,
+      "Sp. Defense": 50,
+      "Speed": 75
+    }
+  },
+  {
+    "id": 100,
+    "name": {
+      "english": "Voltorb",
+      "japanese": "ビリリダマ",
+      "chinese": "霹雳电球",
+      "french": "Voltorbe"
+    },
+    "description": "Usually found in power plants. Easily mistaken for a Poké Ball, it has zapped many people.",
+    "type": ["Electric"],
+    "base": {
+      "HP": 40,
+      "Attack": 30,
+      "Defense": 50,
+      "Sp. Attack": 55,
+      "Sp. Defense": 55,
+      "Speed": 100
+    }
+  },
+  {
+    "id": 101,
+    "name": {
+      "english": "Electrode",
+      "japanese": "マルマイン",
+      "chinese": "顽皮雷弹",
+      "french": "Électrode"
+    },
+    "description": "It stores electric energy under very high pressure. It often explodes with little or no provocation.",
+    "type": ["Electric"],
+    "base": {
+      "HP": 60,
+      "Attack": 50,
+      "Defense": 70,
+      "Sp. Attack": 80,
+      "Sp. Defense": 80,
+      "Speed": 150
+    }
+  },
+  {
+    "id": 102,
+    "name": {
+      "english": "Exeggcute",
+      "japanese": "タマタマ",
+      "chinese": "蛋蛋",
+      "french": "Noeunoeuf"
+    },
+    "description": "Often mistaken for eggs. When disturbed, they quickly gather and attack in swarms.",
+    "type": ["Grass", "Psychic"],
+    "base": {
+      "HP": 60,
+      "Attack": 40,
+      "Defense": 80,
+      "Sp. Attack": 60,
+      "Sp. Defense": 45,
+      "Speed": 40
+    }
+  },
+  {
+    "id": 103,
+    "name": {
+      "english": "Exeggutor",
+      "japanese": "ナッシー",
+      "chinese": "椰蛋树",
+      "french": "Noadkoko"
+    },
+    "description": "Legend has it that on rare occasions, one of its heads will drop off and continue on as an Exeggcute.",
+    "type": ["Grass", "Psychic"],
+    "base": {
+      "HP": 95,
+      "Attack": 95,
+      "Defense": 85,
+      "Sp. Attack": 125,
+      "Sp. Defense": 75,
+      "Speed": 55
+    }
+  },
+  {
+    "id": 104,
+    "name": {
+      "english": "Cubone",
+      "japanese": "カラカラ",
+      "chinese": "卡拉卡拉",
+      "french": "Osselait"
+    },
+    "description": "Because it never removes its skull helmet, no one has ever seen this Pokémon's real face.",
+    "type": ["Ground"],
+    "base": {
+      "HP": 50,
+      "Attack": 50,
+      "Defense": 95,
+      "Sp. Attack": 40,
+      "Sp. Defense": 50,
+      "Speed": 35
+    }
+  },
+  {
+    "id": 105,
+    "name": {
+      "english": "Marowak",
+      "japanese": "ガラガラ",
+      "chinese": "嘎啦嘎啦",
+      "french": "Ossatueur"
+    },
+    "description": "Small and weak, this Pokémon is adept with its bone club. It has grown more vicious over the ages.",
+    "type": ["Ground"],
+    "base": {
+      "HP": 60,
+      "Attack": 80,
+      "Defense": 110,
+      "Sp. Attack": 50,
+      "Sp. Defense": 80,
+      "Speed": 45
+    }
+  },
+  {
+    "id": 106,
+    "name": {
+      "english": "Hitmonlee",
+      "japanese": "サワムラー",
+      "chinese": "飞腿郎",
+      "french": "Kicklee"
+    },
+    "description": "When kicking, the sole of its foot turns as hard as a diamond on impact and destroys its enemy.",
+    "type": ["Fighting"],
+    "base": {
+      "HP": 50,
+      "Attack": 120,
+      "Defense": 53,
+      "Sp. Attack": 35,
+      "Sp. Defense": 110,
+      "Speed": 87
+    }
+  },
+  {
+    "id": 107,
+    "name": {
+      "english": "Hitmonchan",
+      "japanese": "エビワラー",
+      "chinese": "快拳郎",
+      "french": "Tygnon"
+    },
+    "description": "While apparently doing nothing, it fires punches in lightning fast volleys that are impossible to see.",
+    "type": ["Fighting"],
+    "base": {
+      "HP": 50,
+      "Attack": 105,
+      "Defense": 79,
+      "Sp. Attack": 35,
+      "Sp. Defense": 110,
+      "Speed": 76
+    }
+  },
+  {
+    "id": 108,
+    "name": {
+      "english": "Lickitung",
+      "japanese": "ベロリンガ",
+      "chinese": "大舌头",
+      "french": "Excelangue"
+    },
+    "description": "Its tongue can be extended like a chameleon's. It leaves a tingling sensation when it licks enemies.",
+    "type": ["Normal"],
+    "base": {
+      "HP": 90,
+      "Attack": 55,
+      "Defense": 75,
+      "Sp. Attack": 60,
+      "Sp. Defense": 75,
+      "Speed": 30
+    }
+  },
+  {
+    "id": 109,
+    "name": {
+      "english": "Koffing",
+      "japanese": "ドガース",
+      "chinese": "瓦斯弹",
+      "french": "Smogo"
+    },
+    "description": "Because it stores several kinds of toxic gases in its body, it is prone to exploding without warning.",
+    "type": ["Poison"],
+    "base": {
+      "HP": 40,
+      "Attack": 65,
+      "Defense": 95,
+      "Sp. Attack": 60,
+      "Sp. Defense": 45,
+      "Speed": 35
+    }
+  },
+  {
+    "id": 110,
+    "name": {
+      "english": "Weezing",
+      "japanese": "マタドガス",
+      "chinese": "双弹瓦斯",
+      "french": "Smogogo"
+    },
+    "description": "Where two kinds of poison gases meet, 2 Koffings can fuse into a Weezing over many years.",
+    "type": ["Poison"],
+    "base": {
+      "HP": 65,
+      "Attack": 90,
+      "Defense": 120,
+      "Sp. Attack": 85,
+      "Sp. Defense": 70,
+      "Speed": 60
+    }
+  },
+  {
+    "id": 111,
+    "name": {
+      "english": "Rhyhorn",
+      "japanese": "サイホーン",
+      "chinese": "独角犀牛",
+      "french": "Rhinocorne"
+    },
+    "description": "Its massive bones are 1000 times harder than human bones. It can easily knock a trailer flying.",
+    "type": ["Ground", "Rock"],
+    "base": {
+      "HP": 80,
+      "Attack": 85,
+      "Defense": 95,
+      "Sp. Attack": 30,
+      "Sp. Defense": 30,
+      "Speed": 25
+    }
+  },
+  {
+    "id": 112,
+    "name": {
+      "english": "Rhydon",
+      "japanese": "サイドン",
+      "chinese": "钻角犀兽",
+      "french": "Rhinoféros"
+    },
+    "description": "Protected by an armor-like hide, it is capable of living in molten lava of 3,600 degrees.",
+    "type": ["Ground", "Rock"],
+    "base": {
+      "HP": 105,
+      "Attack": 130,
+      "Defense": 120,
+      "Sp. Attack": 45,
+      "Sp. Defense": 45,
+      "Speed": 40
+    }
+  },
+  {
+    "id": 113,
+    "name": {
+      "english": "Chansey",
+      "japanese": "ラッキー",
+      "chinese": "吉利蛋",
+      "french": "Leveinard"
+    },
+    "description": "A rare and elusive Pokémon that is said to bring happiness to those who manage to get it.",
+    "type": ["Normal"],
+    "base": {
+      "HP": 250,
+      "Attack": 5,
+      "Defense": 5,
+      "Sp. Attack": 35,
+      "Sp. Defense": 105,
+      "Speed": 50
+    }
+  },
+  {
+    "id": 114,
+    "name": {
+      "english": "Tangela",
+      "japanese": "モンジャラ",
+      "chinese": "蔓藤怪",
+      "french": "Saquedeneu"
+    },
+    "description": "Its long tentacles are freely adjustable. It lashes about to fend off its enemies.",
+    "type": ["Grass"],
+    "base": {
+      "HP": 65,
+      "Attack": 55,
+      "Defense": 115,
+      "Sp. Attack": 100,
+      "Sp. Defense": 40,
+      "Speed": 60
+    }
+  },
+  {
+    "id": 115,
+    "name": {
+      "english": "Kangaskhan",
+      "japanese": "ガルーラ",
+      "chinese": "袋兽",
+      "french": "Kangourex"
+    },
+    "description": "The infant rarely ventures out of its mother's protective pouch until it is 3 years old.",
+    "type": ["Normal"],
+    "base": {
+      "HP": 105,
+      "Attack": 95,
+      "Defense": 80,
+      "Sp. Attack": 40,
+      "Sp. Defense": 80,
+      "Speed": 90
+    }
+  },
+  {
+    "id": 116,
+    "name": {
+      "english": "Horsea",
+      "japanese": "タッツー",
+      "chinese": "墨海马",
+      "french": "Hypotrempe"
+    },
+    "description": "Known to shoot down flying bugs with precision blasts of ink from the surface of the water.",
+    "type": ["Water"],
+    "base": {
+      "HP": 30,
+      "Attack": 40,
+      "Defense": 70,
+      "Sp. Attack": 70,
+      "Sp. Defense": 25,
+      "Speed": 60
+    }
+  },
+  {
+    "id": 117,
+    "name": {
+      "english": "Seadra",
+      "japanese": "シードラ",
+      "chinese": "海刺龙",
+      "french": "Hypocéan"
+    },
+    "description": "Capable of swimming backwards by rapidly flapping its wing-like pectoral fins and stout tail.",
+    "type": ["Water"],
+    "base": {
+      "HP": 55,
+      "Attack": 65,
+      "Defense": 95,
+      "Sp. Attack": 95,
+      "Sp. Defense": 45,
+      "Speed": 85
+    }
+  },
+  {
+    "id": 118,
+    "name": {
+      "english": "Goldeen",
+      "japanese": "トサキント",
+      "chinese": "角金鱼",
+      "french": "Poissirène"
+    },
+    "description": "Its tail fin billows like an elegant ballroom dress, giving it the nickname of the Water Queen.",
+    "type": ["Water"],
+    "base": {
+      "HP": 45,
+      "Attack": 67,
+      "Defense": 60,
+      "Sp. Attack": 35,
+      "Sp. Defense": 50,
+      "Speed": 63
+    }
+  },
+  {
+    "id": 119,
+    "name": {
+      "english": "Seaking",
+      "japanese": "アズマオウ",
+      "chinese": "金鱼王",
+      "french": "Poissoroy"
+    },
+    "description": "In the autumn spawning season, they can be seen swimming powerfully up rivers and creeks.",
+    "type": ["Water"],
+    "base": {
+      "HP": 80,
+      "Attack": 92,
+      "Defense": 65,
+      "Sp. Attack": 65,
+      "Sp. Defense": 80,
+      "Speed": 68
+    }
+  },
+  {
+    "id": 120,
+    "name": {
+      "english": "Staryu",
+      "japanese": "ヒトデマン",
+      "chinese": "海星星",
+      "french": "Stari"
+    },
+    "description": "As long as the center section is unharmed, it can grow back fully even if it is chopped to bits.",
+    "type": ["Water"],
+    "base": {
+      "HP": 30,
+      "Attack": 45,
+      "Defense": 55,
+      "Sp. Attack": 70,
+      "Sp. Defense": 55,
+      "Speed": 85
+    }
+  },
+  {
+    "id": 121,
+    "name": {
+      "english": "Starmie",
+      "japanese": "スターミー",
+      "chinese": "宝石海星",
+      "french": "Staross"
+    },
+    "description": "Its central core glows with the seven colors of the rainbow. Some people value the core as a gem.",
+    "type": ["Water", "Psychic"],
+    "base": {
+      "HP": 60,
+      "Attack": 75,
+      "Defense": 85,
+      "Sp. Attack": 100,
+      "Sp. Defense": 85,
+      "Speed": 115
+    }
+  },
+  {
+    "id": 122,
+    "name": {
+      "english": "Mr. Mime",
+      "japanese": "バリヤード",
+      "chinese": "魔墙人偶",
+      "french": "M. Mime"
+    },
+    "description": "If interrupted while it is miming, it will slap around the offender with its broad hands.",
+    "type": ["Psychic", "Fairy"],
+    "base": {
+      "HP": 40,
+      "Attack": 45,
+      "Defense": 65,
+      "Sp. Attack": 100,
+      "Sp. Defense": 120,
+      "Speed": 90
+    }
+  },
+  {
+    "id": 123,
+    "name": {
+      "english": "Scyther",
+      "japanese": "ストライク",
+      "chinese": "飞天螳螂",
+      "french": "Insécateur"
+    },
+    "description": "With ninja-like agility and speed, it can create the illusion that there is more than one.",
+    "type": ["Bug", "Flying"],
+    "base": {
+      "HP": 70,
+      "Attack": 110,
+      "Defense": 80,
+      "Sp. Attack": 55,
+      "Sp. Defense": 80,
+      "Speed": 105
+    }
+  },
+  {
+    "id": 124,
+    "name": {
+      "english": "Jynx",
+      "japanese": "ルージュラ",
+      "chinese": "迷唇姐",
+      "french": "Lippoutou"
+    },
+    "description": "It seductively wiggles its hips as it walks. It can cause people to dance in unison with it.",
+    "type": ["Ice", "Psychic"],
+    "base": {
+      "HP": 65,
+      "Attack": 50,
+      "Defense": 35,
+      "Sp. Attack": 115,
+      "Sp. Defense": 95,
+      "Speed": 95
+    }
+  },
+  {
+    "id": 125,
+    "name": {
+      "english": "Electabuzz",
+      "japanese": "エレブー",
+      "chinese": "电击兽",
+      "french": "Élektek"
+    },
+    "description": "Normally found near power plants, they can wander away and cause major blackouts in cities.",
+    "type": ["Electric"],
+    "base": {
+      "HP": 65,
+      "Attack": 83,
+      "Defense": 57,
+      "Sp. Attack": 95,
+      "Sp. Defense": 85,
+      "Speed": 105
+    }
+  },
+  {
+    "id": 126,
+    "name": {
+      "english": "Magmar",
+      "japanese": "ブーバー",
+      "chinese": "鸭嘴火兽",
+      "french": "Magmar"
+    },
+    "description": "Born in an active volcano. Its body is always cloaked in flames, so it looks like a big ball of fire.",
+    "type": ["Fire"],
+    "base": {
+      "HP": 65,
+      "Attack": 95,
+      "Defense": 57,
+      "Sp. Attack": 100,
+      "Sp. Defense": 85,
+      "Speed": 93
+    }
+  },
+  {
+    "id": 127,
+    "name": {
+      "english": "Pinsir",
+      "japanese": "カイロス",
+      "chinese": "凯罗斯",
+      "french": "Scarabrute"
+    },
+    "description": "It grips prey with its pincers until the prey is torn in half. What it can't tear, it tosses far.",
+    "type": ["Bug"],
+    "base": {
+      "HP": 65,
+      "Attack": 125,
+      "Defense": 100,
+      "Sp. Attack": 55,
+      "Sp. Defense": 70,
+      "Speed": 85
+    }
+  },
+  {
+    "id": 128,
+    "name": {
+      "english": "Tauros",
+      "japanese": "ケンタロス",
+      "chinese": "肯泰罗",
+      "french": "Tauros"
+    },
+    "description": "When it targets an enemy, it charges furiously while whipping its body with its long tails.",
+    "type": ["Normal"],
+    "base": {
+      "HP": 75,
+      "Attack": 100,
+      "Defense": 95,
+      "Sp. Attack": 40,
+      "Sp. Defense": 70,
+      "Speed": 110
+    }
+  },
+  {
+    "id": 129,
+    "name": {
+      "english": "Magikarp",
+      "japanese": "コイキング",
+      "chinese": "鲤鱼王",
+      "french": "Magicarpe"
+    },
+    "description": "In the distant past, it was somewhat stronger than the horribly weak descendants that exist today.",
+    "type": ["Water"],
+    "base": {
+      "HP": 20,
+      "Attack": 10,
+      "Defense": 55,
+      "Sp. Attack": 15,
+      "Sp. Defense": 20,
+      "Speed": 80
+    }
+  },
+  {
+    "id": 130,
+    "name": {
+      "english": "Gyarados",
+      "japanese": "ギャラドス",
+      "chinese": "暴鲤龙",
+      "french": "Léviator"
+    },
+    "description": "Rarely seen in the wild. Huge and vicious, it is capable of destroying entire cities in a rage.",
+    "type": ["Water", "Flying"],
+    "base": {
+      "HP": 95,
+      "Attack": 125,
+      "Defense": 79,
+      "Sp. Attack": 60,
+      "Sp. Defense": 100,
+      "Speed": 81
+    }
+  },
+  {
+    "id": 131,
+    "name": {
+      "english": "Lapras",
+      "japanese": "ラプラス",
+      "chinese": "拉普拉斯",
+      "french": "Lokhlass"
+    },
+    "description": "A gentle soul that can read the minds of people. It can ferry people across the sea on its back.",
+    "type": ["Water", "Ice"],
+    "base": {
+      "HP": 130,
+      "Attack": 85,
+      "Defense": 80,
+      "Sp. Attack": 85,
+      "Sp. Defense": 95,
+      "Speed": 60
+    }
+  },
+  {
+    "id": 132,
+    "name": {
+      "english": "Ditto",
+      "japanese": "メタモン",
+      "chinese": "百变怪",
+      "french": "Métamorph"
+    },
+    "description": "Capable of copying an enemy's genetic code to instantly transform itself into a duplicate of the enemy.",
+    "type": ["Normal"],
+    "base": {
+      "HP": 48,
+      "Attack": 48,
+      "Defense": 48,
+      "Sp. Attack": 48,
+      "Sp. Defense": 48,
+      "Speed": 48
+    }
+  },
+  {
+    "id": 133,
+    "name": {
+      "english": "Eevee",
+      "japanese": "イーブイ",
+      "chinese": "伊布",
+      "french": "Évoli"
+    },
+    "description": "Its genetic code is irregular. It may mutate if it is exposed to radiation from element Stones.",
+    "type": ["Normal"],
+    "base": {
+      "HP": 55,
+      "Attack": 55,
+      "Defense": 50,
+      "Sp. Attack": 45,
+      "Sp. Defense": 65,
+      "Speed": 55
+    }
+  },
+  {
+    "id": 134,
+    "name": {
+      "english": "Vaporeon",
+      "japanese": "シャワーズ",
+      "chinese": "水伊布",
+      "french": "Aquali"
+    },
+    "description": "Lives close to water. Its long tail is ridged with a fin which is often mistaken for a mermaid's.",
+    "type": ["Water"],
+    "base": {
+      "HP": 130,
+      "Attack": 65,
+      "Defense": 60,
+      "Sp. Attack": 110,
+      "Sp. Defense": 95,
+      "Speed": 65
+    }
+  },
+  {
+    "id": 135,
+    "name": {
+      "english": "Jolteon",
+      "japanese": "サンダース",
+      "chinese": "雷伊布",
+      "french": "Voltali"
+    },
+    "description": "It accumulates negative ions in the atmosphere to blast out 10000-volt lightning bolts.",
+    "type": ["Electric"],
+    "base": {
+      "HP": 65,
+      "Attack": 65,
+      "Defense": 60,
+      "Sp. Attack": 110,
+      "Sp. Defense": 95,
+      "Speed": 130
+    }
+  },
+  {
+    "id": 136,
+    "name": {
+      "english": "Flareon",
+      "japanese": "ブースター",
+      "chinese": "火伊布",
+      "french": "Pyroli"
+    },
+    "description": "When storing thermal energy in its body, its temperature could soar to over 1600 degrees.",
+    "type": ["Fire"],
+    "base": {
+      "HP": 65,
+      "Attack": 130,
+      "Defense": 60,
+      "Sp. Attack": 95,
+      "Sp. Defense": 110,
+      "Speed": 65
+    }
+  },
+  {
+    "id": 137,
+    "name": {
+      "english": "Porygon",
+      "japanese": "ポリゴン",
+      "chinese": "多边兽",
+      "french": "Porygon"
+    },
+    "description": "A Pokémon that consists entirely of programming code. Capable of moving freely in cyberspace.",
+    "type": ["Normal"],
+    "base": {
+      "HP": 65,
+      "Attack": 60,
+      "Defense": 70,
+      "Sp. Attack": 85,
+      "Sp. Defense": 75,
+      "Speed": 40
+    }
+  },
+  {
+    "id": 138,
+    "name": {
+      "english": "Omanyte",
+      "japanese": "オムナイト",
+      "chinese": "菊石兽",
+      "french": "Amonita"
+    },
+    "description": "Although long extinct, in rare cases, it can be genetically resurrected from fossils.",
+    "type": ["Rock", "Water"],
+    "base": {
+      "HP": 35,
+      "Attack": 40,
+      "Defense": 100,
+      "Sp. Attack": 90,
+      "Sp. Defense": 55,
+      "Speed": 35
+    }
+  },
+  {
+    "id": 139,
+    "name": {
+      "english": "Omastar",
+      "japanese": "オムスター",
+      "chinese": "多刺菊石兽",
+      "french": "Amonistar"
+    },
+    "description": "A prehistoric Pokémon that died out when its heavy shell made it impossible to catch prey.",
+    "type": ["Rock", "Water"],
+    "base": {
+      "HP": 70,
+      "Attack": 60,
+      "Defense": 125,
+      "Sp. Attack": 115,
+      "Sp. Defense": 70,
+      "Speed": 55
+    }
+  },
+  {
+    "id": 140,
+    "name": {
+      "english": "Kabuto",
+      "japanese": "カブト",
+      "chinese": "化石盔",
+      "french": "Kabuto"
+    },
+    "description": "A Pokémon that was resurrected from a fossil found in what was once the ocean floor eons ago.",
+    "type": ["Rock", "Water"],
+    "base": {
+      "HP": 30,
+      "Attack": 80,
+      "Defense": 90,
+      "Sp. Attack": 55,
+      "Sp. Defense": 45,
+      "Speed": 55
+    }
+  },
+  {
+    "id": 141,
+    "name": {
+      "english": "Kabutops",
+      "japanese": "カブトプス",
+      "chinese": "镰刀盔",
+      "french": "Kabutops"
+    },
+    "description": "A slim and fast swimmer. It slices its prey with its sharp sickles and drinks the body fluids.",
+    "type": ["Rock", "Water"],
+    "base": {
+      "HP": 60,
+      "Attack": 115,
+      "Defense": 105,
+      "Sp. Attack": 65,
+      "Sp. Defense": 70,
+      "Speed": 80
+    }
+  },
+  {
+    "id": 142,
+    "name": {
+      "english": "Aerodactyl",
+      "japanese": "プテラ",
+      "chinese": "化石翼龙",
+      "french": "Ptéra"
+    },
+    "description": "A ferocious, prehistoric Pokémon that goes for the enemy's throat with its serrated saw-like fangs.",
+    "type": ["Rock", "Flying"],
+    "base": {
+      "HP": 80,
+      "Attack": 105,
+      "Defense": 65,
+      "Sp. Attack": 60,
+      "Sp. Defense": 75,
+      "Speed": 130
+    }
+  },
+  {
+    "id": 143,
+    "name": {
+      "english": "Snorlax",
+      "japanese": "カビゴン",
+      "chinese": "卡比兽",
+      "french": "Ronflex"
+    },
+    "description": "Very lazy. Just eats and sleeps. As its rotund bulk builds, it becomes steadily more slothful.",
+    "type": ["Normal"],
+    "base": {
+      "HP": 160,
+      "Attack": 110,
+      "Defense": 65,
+      "Sp. Attack": 65,
+      "Sp. Defense": 110,
+      "Speed": 30
+    }
+  },
+  {
+    "id": 144,
+    "name": {
+      "english": "Articuno",
+      "japanese": "フリーザー",
+      "chinese": "急冻鸟",
+      "french": "Artikodin"
+    },
+    "description": "A legendary bird Pokémon that is said to appear to doomed people who are lost in icy mountains.",
+    "type": ["Ice", "Flying"],
+    "base": {
+      "HP": 90,
+      "Attack": 85,
+      "Defense": 100,
+      "Sp. Attack": 95,
+      "Sp. Defense": 125,
+      "Speed": 85
+    }
+  },
+  {
+    "id": 145,
+    "name": {
+      "english": "Zapdos",
+      "japanese": "サンダー",
+      "chinese": "闪电鸟",
+      "french": "Électhor"
+    },
+    "description": "A legendary bird Pokémon that is said to appear from clouds while dropping enormous lightning bolts.",
+    "type": ["Electric", "Flying"],
+    "base": {
+      "HP": 90,
+      "Attack": 90,
+      "Defense": 85,
+      "Sp. Attack": 125,
+      "Sp. Defense": 90,
+      "Speed": 100
+    }
+  },
+  {
+    "id": 146,
+    "name": {
+      "english": "Moltres",
+      "japanese": "ファイヤー",
+      "chinese": "火焰鸟",
+      "french": "Sulfura"
+    },
+    "description": "Known as the legendary bird of fire. Every flap of its wings creates a dazzling flare of flames.",
+    "type": ["Fire", "Flying"],
+    "base": {
+      "HP": 90,
+      "Attack": 100,
+      "Defense": 90,
+      "Sp. Attack": 125,
+      "Sp. Defense": 85,
+      "Speed": 90
+    }
+  },
+  {
+    "id": 147,
+    "name": {
+      "english": "Dratini",
+      "japanese": "ミニリュウ",
+      "chinese": "迷你龙",
+      "french": "Minidraco"
+    },
+    "description": "Long considered a mythical Pokémon until recently when a small colony was found living underwater.",
+    "type": ["Dragon"],
+    "base": {
+      "HP": 41,
+      "Attack": 64,
+      "Defense": 45,
+      "Sp. Attack": 50,
+      "Sp. Defense": 50,
+      "Speed": 50
+    }
+  },
+  {
+    "id": 148,
+    "name": {
+      "english": "Dragonair",
+      "japanese": "ハクリュー",
+      "chinese": "哈克龙",
+      "french": "Draco"
+    },
+    "description": "A mystical Pokémon that exudes a gentle aura. Has the ability to change climate conditions.",
+    "type": ["Dragon"],
+    "base": {
+      "HP": 61,
+      "Attack": 84,
+      "Defense": 65,
+      "Sp. Attack": 70,
+      "Sp. Defense": 70,
+      "Speed": 70
+    }
+  },
+  {
+    "id": 149,
+    "name": {
+      "english": "Dragonite",
+      "japanese": "カイリュー",
+      "chinese": "快龙",
+      "french": "Dracolosse"
+    },
+    "description": "An extremely rarely seen marine Pokémon. Its intelligence is said to match that of humans.",
+    "type": ["Dragon", "Flying"],
+    "base": {
+      "HP": 91,
+      "Attack": 134,
+      "Defense": 95,
+      "Sp. Attack": 100,
+      "Sp. Defense": 100,
+      "Speed": 80
+    }
+  },
+  {
+    "id": 150,
+    "name": {
+      "english": "Mewtwo",
+      "japanese": "ミュウツー",
+      "chinese": "超梦",
+      "french": "Mewtwo"
+    },
+    "description": "A Pokémon created by recombining Mew's genes. It's said to have the most savage heart among Pokémon.",
+    "type": ["Psychic"],
+    "base": {
+      "HP": 106,
+      "Attack": 110,
+      "Defense": 90,
+      "Sp. Attack": 154,
+      "Sp. Defense": 90,
+      "Speed": 130
+    }
+  },
+  {
+    "id": 151,
+    "name": {
+      "english": "Mew",
+      "japanese": "ミュウ",
+      "chinese": "梦幻",
+      "french": "Mew"
+    },
+    "description": "So rare that it is still said to be a mirage by many experts. Only a few people have seen it worldwide.",
+    "type": ["Psychic"],
+    "base": {
+      "HP": 100,
+      "Attack": 100,
+      "Defense": 100,
+      "Sp. Attack": 100,
+      "Sp. Defense": 100,
+      "Speed": 100
+    }
+  }
+]

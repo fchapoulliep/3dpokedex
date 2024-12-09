@@ -1,0 +1,37 @@
+#navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  height: 60px;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+#navbar .navbar-pokedex {
+  clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 10% 100%);
+  width: 70%;
+  background-color: #586a9e;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#navbar .navbar-pokedex * {
+  width: 33.33%;
+  display: flex;
+}
+
+#navbar .navbar-pokedex *:nth-child(1) {
+  justify-content: flex-end;
+}
+
+#navbar .navbar-pokedex *:nth-child(2) {
+  justify-content: center;
+}
+
+#navbar .navbar-pokedex *:nth-child(3) {
+  justify-content: flex-start;
+}

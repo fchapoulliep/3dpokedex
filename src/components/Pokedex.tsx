@@ -8,6 +8,9 @@ import "../css/pokedex.css";
 /* Importing the list of Pokémon */
 import pokemonList from "../data/pokemons.json";
 
+/* Importing the Footer component */
+import Footer from "./Footer";
+
 /**
  * Pokedex component that displays a list of Pokémon as links.
  * Each Pokémon name is converted to lowercase and used as the URL path.
@@ -58,6 +61,7 @@ const Pokedex: React.FC = () => {
           </Link>
         ))}
       </div>
+      <Footer />
     </div>
   );
 };

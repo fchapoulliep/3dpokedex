@@ -28,7 +28,13 @@ const NavBar: React.FC = () => {
       <div className="navbar-pokedex">
         <Link to="/">Back to the pokedex</Link>
         <div className="navbar-time">{time}</div>
-        <Link to="/contact">Creator's portfolio</Link>
+        <a
+          href="https://fchapoulliep.github.io/portfolio/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Creator's portfolio
+        </a>
       </div>
     </nav>
   );

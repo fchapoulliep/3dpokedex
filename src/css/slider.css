@@ -16,6 +16,10 @@
   z-index: 1;
 }
 
+#slider:hover {
+  background-color: rgb(210, 67, 61);
+}
+
 .slider-left {
   left: 0px;
   clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
@@ -28,10 +32,8 @@
 
 .slider-right:hover img {
   transform: scale(1.2) translateX(5px);
-  transition: all 0.5s ease-in-out;
 }
 
 .slider-left:hover img {
   transform: scale(1.2) translateX(-5px);
-  transition: all 0.5s ease-in-out;
 }

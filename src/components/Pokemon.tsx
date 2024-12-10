@@ -1,12 +1,12 @@
 import React, { useEffect, useMemo } from "react";
-import { useThree, useFrame } from "@react-three/fiber";
+import { useFrame } from "@react-three/fiber";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import pokemonList from "../data/pokemons.json";
 import Loader from "./Loader";
-import Background from "./Background";
 import * as THREE from "three";
 import "../css/pokemon.css";
+import PokemonType from "./PokemonType";
 
 interface PokemonProps {
   pokemonId: string;
@@ -14,11 +14,11 @@ interface PokemonProps {
 
 interface PokemonModelProps {
   modelPath: string;
+  id: number;
 }
 
-const PokemonModel: React.FC<PokemonModelProps> = ({ modelPath }) => {
+const PokemonModel: React.FC<PokemonModelProps> = ({ modelPath, id }) => {
   const { scene, animations } = useGLTF(modelPath);
-  const { camera } = useThree();
   const mixer = new THREE.AnimationMixer(scene);
 
   useEffect(() => {
@@ -47,10 +47,8 @@ const PokemonModel: React.FC<PokemonModelProps> = ({ modelPath }) => {
     if (scene) {
       const box = new THREE.Box3().setFromObject(scene);
       const size = new THREE.Vector3();
-      console.log(box);
       box.getSize(size);
-      console.log(size);
-    
+
       const delta = Math.min(1.0 / size.x, 1.0 / size.y, 1.0 / size.z);
       scene.scale.set(delta, delta, delta);
       scene.traverse((child) => {
@@ -73,7 +71,11 @@ const PokemonModel: React.FC<PokemonModelProps> = ({ modelPath }) => {
             }
           }
         }
-        
+
+        if (mesh.isMesh && id !== 1 && Number(id) < 41) {
+          mesh.castShadow = true;
+          mesh.receiveShadow = true;
+        }
       });
     }
   }, [scene]);
@@ -85,7 +87,11 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonId }) => {
   const pokemon = pokemonList.find((p) => p.id === parseInt(pokemonId));
 
   const pokemonName = pokemon
-    ? pokemon.name.english.toLowerCase().replace(/[\s.,']/g, "").replace("♀", "F").replace("♂", "M")
+    ? pokemon.name.english
+        .toLowerCase()
+        .replace(/[\s.,']/g, "")
+        .replace("♀", "F")
+        .replace("♂", "M")
     : "";
 
   const modelPath = useMemo(
@@ -114,18 +120,27 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonId }) => {
   }, []);
 
   return (
-    <div id="pokemon-overlay">
+    <div
+      id="pokemon-overlay"
+      style={{
+        backgroundImage: `url(/backgrounds/${
+          pokemon.type[0] === "Normal" && pokemon.type[1]
+            ? pokemon.type[1]
+            : pokemon.type[0]
+        }.png)`,
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+      }}
+    >
       <Loader />
       <div className="pokemon-description">
-        <p>{pokemon.name.english}</p>
+        <h2>{pokemon.name.english}</h2>
         <p>Pokédex No. {pokemon.id}</p>
         <p>{pokemon.description}</p>
       </div>
       <div className="pokemon-types">
         {pokemon.type.map((type) => (
-          <span key={type} className={type.toLowerCase()}>
-            {type}
-          </span>
+          <PokemonType key={type} type={type} />
         ))}
       </div>
       <button
@@ -138,19 +153,10 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonId }) => {
         Play Sound
       </button>
 
-      <Canvas style={{ zIndex: -1 }}>
+      <Canvas style={{ background: "transparent" }} shadows>
         <ambientLight intensity={1} />
-        <directionalLight position={[5, 5, 5]} intensity={1} />
-        <directionalLight position={[-5, 5, 5]} intensity={2} />
-        <directionalLight position={[5, -5, 5]} intensity={2} />
-        <directionalLight position={[5, 5, -5]} intensity={2} />
-        <Background
-          background={
-            pokemon.type[0] === "Normal" && pokemon.type[1]
-              ? pokemon.type[1]
-              : pokemon.type[0]
-          }
-        />
+        <directionalLight position={[-5, 5, 5]} intensity={2} castShadow />
+        <directionalLight position={[5, 5, -5]} intensity={2} castShadow />
         <OrbitControls
           enableDamping
           dampingFactor={0.25}
@@ -158,7 +164,7 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonId }) => {
           maxDistance={6}
           autoRotate
         />
-        <PokemonModel modelPath={modelPath} />
+        <PokemonModel modelPath={modelPath} id={pokemon.id} />
       </Canvas>
     </div>
   );

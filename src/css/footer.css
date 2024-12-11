@@ -24,3 +24,20 @@ footer div a {
   margin: 10px;
   font-size: 16px;
 }
+
+@media (max-width: 768px) {
+  footer {
+    flex-direction: column;
+    height: auto;
+  }
+
+  footer div {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  footer div:last-child {
+    margin-bottom: 0;
+  }
+}

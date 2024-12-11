@@ -1,0 +1,130 @@
+.pokemon-cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70%;
+  width: 100%;
+  color: white;
+  border-radius: 20px;
+  transform-style: preserve-3d;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+  transition: height 0.3s ease-in-out;
+}
+
+.pokemon-cards.grass {
+  background-color: #78c850;
+}
+
+.pokemon-cards.fire {
+  background-color: #f08030;
+}
+
+.pokemon-cards.water {
+  background-color: #6890f0;
+}
+
+.pokemon-cards.bug {
+  background-color: #a8b820;
+}
+
+.pokemon-cards.normal {
+  background-color: #a8a878;
+}
+
+.pokemon-cards.poison {
+  background-color: #a040a0;
+}
+
+.pokemon-cards.electric {
+  background-color: #f8d030;
+}
+
+.pokemon-cards.ground {
+  background-color: #e0c068;
+}
+
+.pokemon-cards.fairy {
+  background-color: #ee99ac;
+}
+
+.pokemon-cards.fighting {
+  background-color: #c03028;
+}
+
+.pokemon-cards.psychic {
+  background-color: #f85888;
+}
+
+.pokemon-cards.rock {
+  background-color: #b8a038;
+}
+
+.pokemon-cards.ghost {
+  background-color: #705898;
+}
+
+.pokemon-cards.ice {
+  background-color: #98d8d8;
+}
+
+.pokemon-cards.dragon {
+  background-color: #7038f8;
+}
+
+.pokemon-cards.dark {
+  background-color: #705848;
+}
+
+.pokemon-cards.steel {
+  background-color: #b8b8d0;
+}
+
+.pokemon-cards.flying {
+  background-color: #a890f0;
+}
+
+.inner-element {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-style: italic;
+  color: white;
+  transform: translateZ(60px);
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+.inner-element img {
+  min-height: 50%;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.inner-element a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.inner-element .pokemon-types {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  font-size: 10px;
+  width: 100%;
+}
+
+.inner-element .pokemon-types img {
+  width: 20px;
+  height: 20px;
+}

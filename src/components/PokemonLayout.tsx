@@ -20,13 +20,6 @@ import { useParams } from "react-router-dom";
 const PokemonLayout: React.FC = () => {
   const { pokemonId } = useParams<{ pokemonId: string }>();
 
-  useEffect(() => {
-    const id = parseInt(pokemonId || "0", 10);
-    if (id < 1 || id > 151) {
-      window.location.assign("/");
-    }
-  }, [pokemonId]);
-
   return (
     <>
       <NavBar />

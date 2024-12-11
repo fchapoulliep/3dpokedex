@@ -7,6 +7,7 @@ import Loader from "./Loader";
 import * as THREE from "three";
 import "../css/pokemon.css";
 import PokemonType from "./PokemonType";
+import { Link } from "react-router-dom";
 
 interface PokemonProps {
   pokemonId: string;
@@ -57,7 +58,16 @@ const PokemonModel: React.FC<PokemonModelProps> = ({ modelPath, id }) => {
           const material = mesh.material as THREE.MeshStandardMaterial;
           material.metalness = 0;
           material.roughness = 0.5;
-          material.alphaTest = 0.5;
+          if (
+            id > 40 ||
+            id === 8 ||
+            id === 8 ||
+            id === 16 ||
+            id === 17 ||
+            id === 18
+          ) {
+            material.alphaTest = 0.5;
+          }
           material.transparent = true;
           if (material.map) {
             if (material.map.name.includes("Fire")) {
@@ -72,7 +82,16 @@ const PokemonModel: React.FC<PokemonModelProps> = ({ modelPath, id }) => {
           }
         }
 
-        if (mesh.isMesh && id !== 1 && Number(id) < 41) {
+        if (
+          mesh.isMesh &&
+          id !== 1 &&
+          id !== 8 &&
+          id !== 8 &&
+          id !== 16 &&
+          id !== 17 &&
+          id !== 18 &&
+          Number(id) < 41
+        ) {
           mesh.castShadow = true;
           mesh.receiveShadow = true;
         }
@@ -85,6 +104,7 @@ const PokemonModel: React.FC<PokemonModelProps> = ({ modelPath, id }) => {
 
 const Pokemon: React.FC<PokemonProps> = ({ pokemonId }) => {
   const pokemon = pokemonList.find((p) => p.id === parseInt(pokemonId));
+  const [loading, setLoading] = React.useState(true);
 
   const pokemonName = pokemon
     ? pokemon.name.english
@@ -103,21 +123,36 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonId }) => {
     () => new Audio(`/models/${pokemonName}/${pokemonName}.mp3`),
     [pokemonName]
   );
+  useEffect(() => {
+    setLoading(false);
+  }, [modelPath]);
 
   if (!pokemon) {
-    return <div>The Pokémon does not exist</div>;
+    return (
+      <div
+        style={{
+          width: "100%",
+          height: "100vh",
+          justifyContent: "center",
+          alignItems: "center",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        The Pokémon does not exist
+        <Link to="/">Go back to the Pokédex</Link>
+      </div>
+    );
   }
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      const loader = document.querySelector(".loader");
-      if (loader) {
+    const loader = document.querySelector(".loader");
+    if (loader && !loading) {
+      setTimeout(() => {
         loader.classList.add("animation");
-      }
-    }, 1500);
-
-    return () => clearTimeout(timer);
-  }, []);
+      }, 1500);
+    }
+  });
 
   return (
     <div

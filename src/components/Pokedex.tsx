@@ -1,6 +1,10 @@
 /* Importint React and Link from react-router-dom */
 import React from "react";
-import { Link } from "react-router-dom";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Mousewheel } from "swiper/modules";
+
+import "swiper/swiper-bundle.css";
 
 /* Importing the CSS file */
 import "../css/pokedex.css";
@@ -10,6 +14,7 @@ import pokemonList from "../data/pokemons.json";
 
 /* Importing the Footer component */
 import Footer from "./Footer";
+import PokemonCard from "./PokemonCard";
 
 /**
  * Pokedex component that displays a list of Pokémon as links.
@@ -23,12 +28,27 @@ import Footer from "./Footer";
  */
 const Pokedex: React.FC = () => {
   const [pokemonToShow, setPokemonToShow] = React.useState(pokemonList);
+  const [searchQuery, setSearchQuery] = React.useState("");
+  const [selectedType, setSelectedType] = React.useState("");
 
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const searchQuery = event.target.value.toLowerCase();
-    const filteredPokemon = pokemonList.filter((pokemon) =>
-      pokemon.name.english.toLowerCase().startsWith(searchQuery)
-    );
+    const query = event.target.value.toLowerCase();
+    setSearchQuery(query);
+    filterPokemon(query, selectedType);
+  };
+
+  const handleTypeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const type = event.target.value;
+    setSelectedType(type);
+    filterPokemon(searchQuery, type);
+  };
+
+  const filterPokemon = (query: string, type: string) => {
+    const filteredPokemon = pokemonList.filter((pokemon) => {
+      const matchesName = pokemon.name.english.toLowerCase().startsWith(query);
+      const matchesType = type === "" ? true : pokemon.type.includes(type);
+      return matchesName && matchesType;
+    });
     setPokemonToShow(filteredPokemon);
   };
 
@@ -42,24 +62,51 @@ const Pokedex: React.FC = () => {
             placeholder="Search Pokémon"
             onInput={handleInput}
           />
+          <select onChange={handleTypeChange}>
+            <option value="">All Types</option>
+            {Array.from(
+              new Set(pokemonList.flatMap((pokemon) => pokemon.type))
+            ).map((type, index) => (
+              <option key={index} value={type}>
+                {type}
+              </option>
+            ))}
+          </select>
         </search>
       </div>
       <div id="pokedex-container">
-        {pokemonToShow.map((pokemon, index) => (
-          <Link
-            key={index}
-            to={`/${pokemon.id}`}
-            style={{ animationDelay: `${index * 0.03}s` }}
-          >
-            <div className="pokemon-sprite">
-              <img
-                src={`/sprites/${pokemon.id}MS.png`}
-                alt={pokemon.name.english}
+        <Swiper
+          modules={[Navigation, Pagination, Mousewheel]}
+          spaceBetween={30}
+          slidesPerView="auto"
+          centeredSlides={true}
+          freeMode={true}
+          mousewheel={{ forceToAxis: true }}
+          navigation={true}
+          initialSlide={2}
+          cssMode
+        >
+          {pokemonToShow.map((pokemon, index) => (
+            <SwiperSlide
+              style={{
+                width: "300px",
+                textAlign: "center",
+                height: "100%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              key={index}
+            >
+              <PokemonCard
+                key={index}
+                name={pokemon.name.english}
+                id={pokemon.id}
+                types={pokemon.type}
               />
-              <p>{pokemon.name.english}</p>
-            </div>
-          </Link>
-        ))}
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
       <Footer />
     </div>

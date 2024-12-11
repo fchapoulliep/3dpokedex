@@ -6,7 +6,7 @@
 }
 
 #pokedex-navbar {
-  position: fixed;
+  position: sticky;
   height: 60px;
   top: 0;
   width: 100%;
@@ -20,27 +20,19 @@
 
 #pokedex-container {
   display: flex;
-  flex-wrap: wrap;
   position: relative;
-  width: 80%;
-  margin-top: 60px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  min-height: calc(100vh - 200px);
-}
-
-#pokedex-container a {
-  width: 90px;
-  opacity: 0;
-  animation: fadeIn 0.5s forwards;
-  color: black;
-}
-
-.pokemon-sprite {
-  display: flex;
-  align-items: center;
+  width: 100%;
+  min-height: calc(100vh - 160px);
+  border-radius: 10px;
+  overflow: hidden;
+  flex-wrap: wrap;
+  gap: 20px;
   justify-content: center;
-  flex-direction: column;
+}
+
+.swiper-slide-active .pokemon-cards {
+  height: 85%;
+  transition: height 0.3s ease-in-out;
 }
 
 @keyframes fadeIn {

@@ -103,3 +103,8 @@
     background: #3dc7ef;
     box-shadow: 0 0 30px #3dc7ef;
 }
+
+.type-div p {
+    margin: 0;
+    font-size: 16px;
+}

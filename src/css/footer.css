@@ -9,11 +9,12 @@ footer {
   align-items: center;
   padding-top: 10px;
   padding-bottom: 10px;
-  height: 80px
+  height: 80px;
+  transition: 200ms all;
 }
 
 footer p {
-  font-size: 13px;
+  font-size: 12px;
 }
 
 footer div {

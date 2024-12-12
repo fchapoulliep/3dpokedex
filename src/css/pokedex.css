@@ -118,6 +118,6 @@
 
 @media screen and (max-width: 768px) {
   #pokedex-container {
-    min-height: calc(100vh - 194px);
+    min-height: calc(100vh - 188px);
   }
 }

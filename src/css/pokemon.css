@@ -29,6 +29,7 @@
   min-width: 20%;
   max-width: 30%;
   z-index: 1;
+  transition: 200ms all;
 }
 
 #pokemon-overlay .pokemon-description h2 {
@@ -129,4 +130,29 @@
 
 #pokemon-overlay button:active:after {
   box-shadow: 0 0px 0 0 rgb(0 0 0 / 15%);
+}
+
+@media (max-width: 768px) {
+  #pokemon-overlay p {
+    font-size: 12px;
+  }
+
+  #pokemon-overlay h2 {
+    font-size: 16px;
+  }
+
+  #pokemon-overlay .pokemon-types img {
+    width: 16px;
+    height: 16px;
+  }
+
+  #pokemon-overlay .pokemon-types p {
+    font-size: 10px;
+  }
+
+  #pokemon-overlay .pokemon-types .type-div:first-child p {
+    margin-right: 5px;
+  }
+
+  
 }

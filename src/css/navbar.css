@@ -17,11 +17,11 @@
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  transition: 200ms all;
 }
 
 #navbar .navbar-pokedex * {
-  width: 33.33%;
+  width: 33.3333%;
   display: flex;
 }
 
@@ -35,4 +35,21 @@
 
 #navbar .navbar-pokedex *:nth-child(3) {
   justify-content: flex-start;
+}
+
+@media screen and (max-width: 768px) {
+  #navbar .navbar-pokedex {
+    width: 90%;
+    justify-content: space-evenly;
+  }
+
+  #navbar .navbar-pokedex * {
+    display: block;
+    width: auto;
+  }
+
+  #navbar p, #navbar a {
+    font-size: 13px;
+  }
+  
 }

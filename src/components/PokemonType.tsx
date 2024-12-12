@@ -27,7 +27,7 @@ const PokemonType: React.FC<PokemonTypeProps> = ({ type }) => {
         src={`/type_icons/${type.toLowerCase()}.svg`}
         alt={type}
       />
-      {type}
+      <p>{type}</p>
     </div>
   );
 };

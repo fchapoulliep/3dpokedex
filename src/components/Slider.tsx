@@ -1,8 +1,8 @@
 /**
  * Importing React and the slider CSS.
  */
-import React from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
 import "../css/slider.css";
 
 import arrowRight from "../assets/pokedex/pokedexArrowRight.png";
@@ -21,23 +21,37 @@ interface SliderProps {
  */
 const Slider: React.FC<SliderProps> = ({ direction }) => {
   const { pokemonId } = useParams<{ pokemonId: string }>();
+  const [newId, setNewId] = React.useState(pokemonId);
 
-  const handleClick = () => {
-    const newId =
-      direction === "left"
-        ? parseInt(pokemonId || "0") - 1
-        : parseInt(pokemonId || "0") + 1;
-    window.location.href = `/${newId}`;
-  };
+  useEffect(() => {
+    if (direction === "left") {
+      setNewId(`${parseInt(pokemonId || "0") - 1}`);
+    } else {
+      setNewId(`${parseInt(pokemonId || "0") + 1}`);
+    }
+  }, [pokemonId]);
 
   return (
     <div
-      onClick={handleClick}
       style={{ cursor: "pointer" }}
       id="slider"
       className={`slider-${direction}`}
     >
-      <img src={direction === "left" ? arrowLeft : arrowRight} alt={`${direction} arrow`} />
+      <Link
+        to={`/${newId}`}
+        style={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <img
+          src={direction === "left" ? arrowLeft : arrowRight}
+          alt={`${direction} arrow`}
+        />
+      </Link>
     </div>
   );
 };

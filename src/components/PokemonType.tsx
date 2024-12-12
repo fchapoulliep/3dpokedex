@@ -24,7 +24,7 @@ const PokemonType: React.FC<PokemonTypeProps> = ({ type }) => {
     <div className={`type-div`}>
       <img
         className="pokemon-type" id={type.toLowerCase()}
-        src={`/type_icons/${type.toLowerCase()}.svg`}
+        src={`${import.meta.env.BASE_URL}/type_icons/${type.toLowerCase()}.svg`}
         alt={type}
       />
       <p>{type}</p>

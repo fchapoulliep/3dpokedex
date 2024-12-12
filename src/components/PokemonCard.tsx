@@ -10,7 +10,7 @@ import PokemonType from "./PokemonType";
 
 /**
  * Props for the PokemonCard component.
- * 
+ *
  * @interface PokemonCardProps
  * @property {number} id - The unique identifier for the Pokémon.
  * @property {string} name - The name of the Pokémon.
@@ -43,7 +43,10 @@ const PokemonCard: React.FC<PokemonCardProps> = (pokemon) => {
               <PokemonType key={type} type={type} />
             ))}
           </div>
-          <img src={`/sprites/${pokemon.id}.png`} alt={pokemon.name} />
+          <img
+            src={`${import.meta.env.BASE_URL}/sprites/${pokemon.id}.png`}
+            alt={pokemon.name}
+          />
           <p>
             {pokemon.name} <br />
             <small style={{ fontSize: "10px" }}>#{pokemon.id}</small>

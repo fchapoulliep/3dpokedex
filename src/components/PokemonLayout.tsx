@@ -1,5 +1,5 @@
 // PokemonLayout.tsx
-import React, { useEffect } from "react";
+import React from "react";
 import NavBar from "./NavBar";
 import Slider from "./Slider";
 import Pokemon from "./Pokemon";

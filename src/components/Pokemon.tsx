@@ -59,7 +59,7 @@ const PokemonModel: React.FC<PokemonModelProps> = ({ modelPath, id }) => {
     };
   }, [animations, mixer, scene]);
 
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
     mixer.update(delta);
   });
 
@@ -123,7 +123,7 @@ const PokemonModel: React.FC<PokemonModelProps> = ({ modelPath, id }) => {
 
 /**
  *  Component that renders a Pokémon page with a 3D model, description, and type information.
- * @param pokemonId The ID of the Pokémon to display. 
+ * @param pokemonId The ID of the Pokémon to display.
  * @returns The Pokémon page with the 3D model, description, and type information.
  */
 const Pokemon: React.FC<PokemonProps> = ({ pokemonId }) => {
@@ -139,15 +139,28 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonId }) => {
     : "";
 
   const modelPath = useMemo(
-    () => `/models/${pokemonName}/${pokemonName}.glb`,
+    () =>
+      `${
+        import.meta.env.BASE_URL
+      }models/${pokemonName}/${pokemonName}.glb?v=${new Date().getTime()}`,
     [pokemonName]
   );
 
   const audio = useMemo(
-    () => new Audio(`/models/${pokemonName}/${pokemonName}.mp3`),
+    () =>
+      new Audio(
+        `${
+          import.meta.env.BASE_URL
+        }models/${pokemonName}/${pokemonName}.mp3?v=${new Date().getTime()}`
+      ),
     [pokemonName]
   );
+  
   useEffect(() => {
+    const loader = document.querySelector(".loader");
+    if (loader) {
+      loader.classList.remove("animation");
+    }
     setLoading(false);
   }, [modelPath]);
 
@@ -182,7 +195,7 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonId }) => {
     <div
       id="pokemon-overlay"
       style={{
-        backgroundImage: `url(/backgrounds/${
+        backgroundImage: `url(${import.meta.env.BASE_URL}backgrounds/${
           pokemon.type[0] === "Normal" && pokemon.type[1]
             ? pokemon.type[1]
             : pokemon.type[0]
@@ -212,7 +225,7 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonId }) => {
         Play Sound
       </button>
 
-      <Canvas style={{ background: "transparent" }} shadows>
+      <Canvas style={{ background: "transparent" }} shadows key={modelPath}>
         <ambientLight intensity={1} />
         <directionalLight position={[-5, 5, 5]} intensity={2} castShadow />
         <directionalLight position={[5, 5, -5]} intensity={2} castShadow />

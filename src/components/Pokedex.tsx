@@ -72,7 +72,7 @@ const Pokedex: React.FC = () => {
     <div id="pokedex">
       <div id="pokedex-navbar">
         <a
-          href="/"
+          href={`${import.meta.env.BASE_URL}`}
           style={{ height: "100%", display: "flex", alignItems: "center" }}
         >
           <img
@@ -83,11 +83,12 @@ const Pokedex: React.FC = () => {
         </a>
         <search id="search-bar">
           <input
+            name="pokemon-name"
             type="text"
             placeholder="Search Pokémon"
             onInput={handleInput}
           />
-          <select onChange={handleTypeChange}>
+          <select name="pokemon-type" onChange={handleTypeChange}>
             <option value="">All Types</option>
             {Array.from(
               new Set(pokemonList.flatMap((pokemon) => pokemon.type))

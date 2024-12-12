@@ -1,3 +1,6 @@
+/** 
+ * Importing React and the NavBar CSS.
+ */
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../css/navbar.css";
@@ -26,7 +29,7 @@ const NavBar: React.FC = () => {
   return (
     <nav id="navbar">
       <div className="navbar-pokedex">
-        <Link to="/">Back to the pokedex</Link>
+        <Link to="/">Back to the Pokédex</Link>
         <div className="navbar-time">{time}</div>
         <a
           href="https://fchapoulliep.github.io/portfolio/"

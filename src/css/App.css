@@ -17,12 +17,6 @@ body,
   font-family: "Pokemon", sans-serif;
 }
 
-html,
-body,
-* {
-  cursor: url("../assets/cursors/PokemonCursor.cur"), auto !important;
-}
-
 a {
   text-decoration: none;
   color: inherit;
@@ -32,12 +26,6 @@ a:hover {
   text-decoration: none;
   font-weight: bold;
   text-shadow: 0 0 5px #f1f1f1, 0 0 10px #f1f1f1, 0 0 15px #f1f1f1;
-}
-
-*:hover,
-*:focus,
-*:active {
-  cursor: url("../assets/cursors/PokemonCursor.cur"), auto !important;
 }
 
 ::-webkit-scrollbar {

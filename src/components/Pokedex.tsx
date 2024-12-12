@@ -1,9 +1,11 @@
-/* Importint React and Link from react-router-dom */
+/* Importing React and Link from react-router-dom */
 import React from "react";
 
+/* Importing Swiper components */
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Mousewheel } from "swiper/modules";
-
+import { Navigation, Keyboard } from "swiper/modules";
+import SwiperCore from "swiper/core";
+SwiperCore.use([Keyboard, Navigation]);
 import "swiper/swiper-bundle.css";
 
 /* Importing the CSS file */
@@ -15,6 +17,9 @@ import pokemonList from "../data/pokemons.json";
 /* Importing the Footer component */
 import Footer from "./Footer";
 import PokemonCard from "./PokemonCard";
+
+import pokemonLogo from "../assets/logo/pokemonLogo.png";
+
 
 /**
  * Pokedex component that displays a list of Pokémon as links.
@@ -31,18 +36,29 @@ const Pokedex: React.FC = () => {
   const [searchQuery, setSearchQuery] = React.useState("");
   const [selectedType, setSelectedType] = React.useState("");
 
+  /**
+   * handleInput function that filters the Pokémon list based on the search query.
+   */
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     const query = event.target.value.toLowerCase();
     setSearchQuery(query);
     filterPokemon(query, selectedType);
   };
 
+  /**
+   * handleTypeChange function that filters the Pokémon list based on the selected type.
+   */
   const handleTypeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const type = event.target.value;
     setSelectedType(type);
     filterPokemon(searchQuery, type);
   };
 
+  /**
+   * filterPokemon function that filters the Pokémon list based on the search query and type.
+   * @param query the search query
+   * @param type the selected type
+   */
   const filterPokemon = (query: string, type: string) => {
     const filteredPokemon = pokemonList.filter((pokemon) => {
       const matchesName = pokemon.name.english.toLowerCase().startsWith(query);
@@ -55,8 +71,17 @@ const Pokedex: React.FC = () => {
   return (
     <div id="pokedex">
       <div id="pokedex-navbar">
-        <p>3D Pokedex</p>
-        <search>
+        <a
+          href="/"
+          style={{ height: "100%", display: "flex", alignItems: "center" }}
+        >
+          <img
+            src={pokemonLogo}
+            alt="Pokemon Logo"
+            style={{ width: "100px" }}
+          />
+        </a>
+        <search id="search-bar">
           <input
             type="text"
             placeholder="Search Pokémon"
@@ -76,14 +101,13 @@ const Pokedex: React.FC = () => {
       </div>
       <div id="pokedex-container">
         <Swiper
-          modules={[Navigation, Pagination, Mousewheel]}
           spaceBetween={30}
           slidesPerView="auto"
           centeredSlides={true}
           freeMode={true}
-          mousewheel={{ forceToAxis: true }}
           navigation={true}
           initialSlide={2}
+          keyboard
           cssMode
         >
           {pokemonToShow.map((pokemon, index) => (

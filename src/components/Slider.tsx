@@ -1,15 +1,24 @@
+/**
+ * Importing React and the slider CSS.
+ */
 import React from "react";
 import { useParams } from "react-router-dom";
-
 import "../css/slider.css";
 
 import arrowRight from "../assets/pokedex/pokedexArrowRight.png";
 import arrowLeft from "../assets/pokedex/pokedexArrowLeft.png";
 
+/**
+ * Props for the Slider component.
+ */
 interface SliderProps {
   direction: "left" | "right";
 }
 
+/**
+ * Slider component that displays a left or right arrow to navigate between Pokémon.
+ * Uses the URL parameter to determine the current Pokémon ID.
+ */
 const Slider: React.FC<SliderProps> = ({ direction }) => {
   const { pokemonId } = useParams<{ pokemonId: string }>();
 

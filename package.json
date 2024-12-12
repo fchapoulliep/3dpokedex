@@ -1,9 +1,9 @@
 {
-  "name": "gen1pokedex",
+  "name": "3dpokedex",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://fchapoulliep.github.io/gen1-pokedex-3d/",
+  "homepage": "https://fchapoulliep.github.io/3dpokedex/",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

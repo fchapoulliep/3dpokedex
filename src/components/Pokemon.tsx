@@ -1,3 +1,6 @@
+/**
+ * Importing React, the Loader component, the PokemonType component, and the Link component.
+ */
 import React, { useEffect, useMemo } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Canvas } from "@react-three/fiber";
@@ -9,15 +12,31 @@ import "../css/pokemon.css";
 import PokemonType from "./PokemonType";
 import { Link } from "react-router-dom";
 
+/**
+ * Interface for the PokemonProps type, which includes the Pokémon ID.
+ */
 interface PokemonProps {
   pokemonId: string;
 }
 
+/**
+ * Interface for the PokemonModelProps type, which includes the model path and Pokémon ID.
+ */
 interface PokemonModelProps {
   modelPath: string;
   id: number;
 }
 
+/**
+ * Component that renders a 3D model of a Pokémon using the provided model path and Pokémon ID.
+ * It handles loading the model, playing idle animations, and adjusting the model's scale and materials.
+ *
+ * @component
+ * @param {PokemonModelProps} props - The properties for the PokemonModel component.
+ * @param {string} props.modelPath - The path to the 3D model file.
+ * @param {number} props.id - The ID of the Pokémon.
+ * @returns {JSX.Element} The rendered 3D model of the Pokémon.
+ */
 const PokemonModel: React.FC<PokemonModelProps> = ({ modelPath, id }) => {
   const { scene, animations } = useGLTF(modelPath);
   const mixer = new THREE.AnimationMixer(scene);
@@ -102,6 +121,11 @@ const PokemonModel: React.FC<PokemonModelProps> = ({ modelPath, id }) => {
   return <primitive object={scene} scale={0.25} position={[0, -1.5, 0]} />;
 };
 
+/**
+ *  Component that renders a Pokémon page with a 3D model, description, and type information.
+ * @param pokemonId The ID of the Pokémon to display. 
+ * @returns The Pokémon page with the 3D model, description, and type information.
+ */
 const Pokemon: React.FC<PokemonProps> = ({ pokemonId }) => {
   const pokemon = pokemonList.find((p) => p.id === parseInt(pokemonId));
   const [loading, setLoading] = React.useState(true);

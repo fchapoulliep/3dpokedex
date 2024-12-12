@@ -1,3 +1,6 @@
+/**
+ * Importing react and the Tilt component. As long as the css
+ */
 import React from "react";
 import Tilt from "react-parallax-tilt";
 import "../css/pokemoncard.css";
@@ -5,12 +8,23 @@ import "../css/pokemoncard.css";
 import { Link } from "react-router-dom";
 import PokemonType from "./PokemonType";
 
+/**
+ * Props for the PokemonCard component.
+ * 
+ * @interface PokemonCardProps
+ * @property {number} id - The unique identifier for the Pokémon.
+ * @property {string} name - The name of the Pokémon.
+ * @property {string[]} types - An array of types associated with the Pokémon.
+ */
 interface PokemonCardProps {
   id: number;
   name: string;
   types: string[];
 }
 
+/**
+ * PokemonCard component that displays a Pokémon card with its name, ID, types, and image.
+ */
 const PokemonCard: React.FC<PokemonCardProps> = (pokemon) => {
   return (
     <Tilt

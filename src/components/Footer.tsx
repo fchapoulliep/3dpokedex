@@ -1,6 +1,23 @@
+/**
+ * Importing React and the footer CSS.
+ */
 import React from "react";
 import "../css/footer.css";
 
+/**
+ * Footer component that displays the footer section of the application.
+ * 
+ * This component includes:
+ * - Copyright information with the current year.
+ * - Links to the portfolio, GitHub, and LinkedIn profiles.
+ * - Credits for the design.
+ * 
+ * @component
+ * @example
+ * return (
+ *   <Footer />
+ * )
+ */
 const Footer: React.FC = () => {
   return (
     <footer className="footer">

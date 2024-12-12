@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://fchapoulliep.github.io/3dpokedex/sitemap.xml

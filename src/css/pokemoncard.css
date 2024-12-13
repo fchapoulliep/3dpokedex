@@ -185,6 +185,10 @@
   width: 100%;
 }
 
+.inner-element a p {
+  margin: 0;
+}
+
 .inner-element .pokemon-types {
   display: flex;
   flex-direction: row;

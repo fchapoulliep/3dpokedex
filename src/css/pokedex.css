@@ -75,7 +75,7 @@
 }
 
 .swiper-slide-active .pokemon-cards {
-  height: 85%;
+  height: 80%;
   transition: height 0.3s ease-in-out;
 }
 

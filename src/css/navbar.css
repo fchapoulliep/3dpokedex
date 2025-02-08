@@ -20,36 +20,42 @@
   transition: 200ms all;
 }
 
-#navbar .navbar-pokedex * {
-  width: 33.3333%;
+#navbar .navbar-pokedex div {
+  width: 33.333%;
   display: flex;
 }
 
-#navbar .navbar-pokedex *:nth-child(1) {
+#navbar .navbar-pokedex div:nth-child(1) {
   justify-content: flex-end;
 }
 
-#navbar .navbar-pokedex *:nth-child(2) {
+#navbar .navbar-pokedex div:nth-child(2) {
   justify-content: center;
 }
 
-#navbar .navbar-pokedex *:nth-child(3) {
+#navbar .navbar-pokedex div:nth-child(3) {
   justify-content: flex-start;
+}
+
+@media screen and (max-width: 1280px) {
+  #navbar p,
+  #navbar a {
+    font-size: 13px;
+  }
 }
 
 @media screen and (max-width: 768px) {
   #navbar .navbar-pokedex {
     width: 90%;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 10px;
   }
 
-  #navbar .navbar-pokedex * {
-    display: block;
+  #navbar .navbar-pokedex div {
     width: auto;
   }
 
   #navbar p, #navbar a {
     font-size: 13px;
   }
-  
 }

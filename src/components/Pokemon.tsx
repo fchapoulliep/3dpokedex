@@ -1,7 +1,7 @@
 /**
  * Importing React, the Loader component, the PokemonType component, and the Link component.
  */
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect, useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
@@ -39,6 +39,7 @@ interface PokemonModelProps {
  */
 const PokemonModel: React.FC<PokemonModelProps> = ({ modelPath, id }) => {
   const { scene, animations } = useGLTF(modelPath);
+  const modelGroup = useRef<THREE.Group>(null);
   const mixer = new THREE.AnimationMixer(scene);
 
   useEffect(() => {
@@ -47,7 +48,7 @@ const PokemonModel: React.FC<PokemonModelProps> = ({ modelPath, id }) => {
         (clip) =>
           clip.name.toLowerCase().includes("idle") ||
           clip.name.toLowerCase().includes("wait") ||
-          clip.name === "0"
+          clip.name === "0",
       );
       const action = mixer.clipAction(idleAnimation || animations[0]);
       action.play();
@@ -61,16 +62,38 @@ const PokemonModel: React.FC<PokemonModelProps> = ({ modelPath, id }) => {
 
   useFrame((_, delta) => {
     mixer.update(delta);
+    if (modelGroup.current) {
+      modelGroup.current.rotation.y += delta * 0.25;
+    }
   });
 
   useEffect(() => {
     if (scene) {
+      scene.position.set(0, 0, 0);
+      scene.scale.set(1, 1, 1);
+      scene.updateMatrixWorld(true);
+
       const box = new THREE.Box3().setFromObject(scene);
       const size = new THREE.Vector3();
+      const center = new THREE.Vector3();
       box.getSize(size);
+      box.getCenter(center);
 
-      const delta = Math.min(1.0 / size.x, 1.0 / size.y, 1.0 / size.z);
+      const maxDim = Math.max(size.x, size.y, size.z, 0.0001);
+
+      const TARGET_SIZE = id === 23 || id === 24 ? 5.5 : 3;
+      const delta = TARGET_SIZE / maxDim;
+
+      const GROUND_OFFSET = id === 24 ? -1 : id === 23 ? -0.8 : -0.3;
+
       scene.scale.set(delta, delta, delta);
+
+      scene.position.set(
+        -center.x * delta,
+        -center.y * delta + GROUND_OFFSET,
+        -center.z * delta,
+      );
+
       scene.traverse((child) => {
         const mesh = child as THREE.Mesh;
         if (mesh.isMesh && mesh.material) {
@@ -118,7 +141,11 @@ const PokemonModel: React.FC<PokemonModelProps> = ({ modelPath, id }) => {
     }
   }, [scene]);
 
-  return <primitive object={scene} scale={0.25} position={[0, -1.5, 0]} />;
+  return (
+    <group ref={modelGroup}>
+      <primitive object={scene} />
+    </group>
+  );
 };
 
 /**
@@ -143,7 +170,7 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonId }) => {
       `${
         import.meta.env.BASE_URL
       }models/${pokemonName}/${pokemonName}.glb?v=${new Date().getTime()}`,
-    [pokemonName]
+    [pokemonName],
   );
 
   const audio = useMemo(
@@ -151,11 +178,11 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonId }) => {
       new Audio(
         `${
           import.meta.env.BASE_URL
-        }models/${pokemonName}/${pokemonName}.mp3?v=${new Date().getTime()}`
+        }models/${pokemonName}/${pokemonName}.mp3?v=${new Date().getTime()}`,
       ),
-    [pokemonName]
+    [pokemonName],
   );
-  
+
   useEffect(() => {
     const loader = document.querySelector(".loader");
     if (loader) {
@@ -181,6 +208,8 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonId }) => {
       </div>
     );
   }
+
+  const cameraDistance = pokemon.id === 24 ? 6 : pokemon.id === 23 ? 4.5 : 5;
 
   useEffect(() => {
     const loader = document.querySelector(".loader");
@@ -225,7 +254,12 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonId }) => {
         Play Sound
       </button>
 
-      <Canvas style={{ background: "transparent" }} shadows key={modelPath}>
+      <Canvas
+        style={{ background: "transparent" }}
+        shadows
+        key={modelPath}
+        camera={{ position: [0, 0, cameraDistance], fov: 50 }}
+      >
         <ambientLight intensity={1} />
         <directionalLight position={[-5, 5, 5]} intensity={2} castShadow />
         <directionalLight position={[5, 5, -5]} intensity={2} castShadow />
@@ -234,7 +268,6 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonId }) => {
           dampingFactor={0.25}
           minDistance={2}
           maxDistance={6}
-          autoRotate
         />
         <PokemonModel modelPath={modelPath} id={pokemon.id} />
       </Canvas>

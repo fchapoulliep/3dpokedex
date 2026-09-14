@@ -1,7 +1,7 @@
 /**
  * Importing React, the Loader component, the PokemonType component, and the Link component.
  */
-import React, { useEffect, useMemo, useRef } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
@@ -25,11 +25,39 @@ interface PokemonProps {
 interface PokemonModelProps {
   modelPath: string;
   id: number;
+  verticalOffsetRatio: number;
 }
+
+const POKEMON_CAMERA_DISTANCE: Record<number, number> = {
+  6: 3,
+  16: 4,
+  17: 4,
+  22: 3,
+  23: 1.5,
+  24: 3,
+  26: 2.5,
+  38: 3,
+  95: 3,
+  138: 6,
+  148: 3,
+};
+
+const DEFAULT_CAMERA_DISTANCE = 5;
+
+const POKEMON_VERTICAL_OFFSET: Record<number, number> = {
+  6: 1.5,
+  15: 2.4,
+  22: 1.2,
+  23: 1.2,
+  26: 1.1,
+  38: 1.2,
+};
+
+const DEFAULT_VERTICAL_OFFSET = 2;
 
 /**
  * Component that renders a 3D model of a Pokémon using the provided model path and Pokémon ID.
- * It handles loading the model, playing idle animations, and adjusting the model's scale and materials.
+ * It handles loading the model, playing idle animations, and centering/scaling the model.
  *
  * @component
  * @param {PokemonModelProps} props - The properties for the PokemonModel component.
@@ -37,9 +65,12 @@ interface PokemonModelProps {
  * @param {number} props.id - The ID of the Pokémon.
  * @returns {JSX.Element} The rendered 3D model of the Pokémon.
  */
-const PokemonModel: React.FC<PokemonModelProps> = ({ modelPath, id }) => {
+const PokemonModel: React.FC<PokemonModelProps> = ({
+  modelPath,
+  id,
+  verticalOffsetRatio,
+}) => {
   const { scene, animations } = useGLTF(modelPath);
-  const modelGroup = useRef<THREE.Group>(null);
   const mixer = new THREE.AnimationMixer(scene);
 
   useEffect(() => {
@@ -62,35 +93,27 @@ const PokemonModel: React.FC<PokemonModelProps> = ({ modelPath, id }) => {
 
   useFrame((_, delta) => {
     mixer.update(delta);
-    if (modelGroup.current) {
-      modelGroup.current.rotation.y += delta * 0.25;
-    }
   });
 
   useEffect(() => {
     if (scene) {
-      scene.position.set(0, 0, 0);
-      scene.scale.set(1, 1, 1);
-      scene.updateMatrixWorld(true);
-
       const box = new THREE.Box3().setFromObject(scene);
       const size = new THREE.Vector3();
       const center = new THREE.Vector3();
       box.getSize(size);
       box.getCenter(center);
 
-      const maxDim = Math.max(size.x, size.y, size.z, 0.0001);
-
-      const TARGET_SIZE = id === 23 || id === 24 ? 5.5 : 3;
-      const delta = TARGET_SIZE / maxDim;
-
-      const GROUND_OFFSET = id === 24 ? -1 : id === 23 ? -0.8 : -0.3;
-
+      const delta = Math.min(1.0 / size.x, 1.0 / size.y, 1.0 / size.z);
       scene.scale.set(delta, delta, delta);
+
+      const boundingSphere = new THREE.Sphere();
+      box.getBoundingSphere(boundingSphere);
+      const verticalOffset =
+        boundingSphere.radius * delta * verticalOffsetRatio;
 
       scene.position.set(
         -center.x * delta,
-        -center.y * delta + GROUND_OFFSET,
+        -center.y * delta - verticalOffset,
         -center.z * delta,
       );
 
@@ -99,53 +122,19 @@ const PokemonModel: React.FC<PokemonModelProps> = ({ modelPath, id }) => {
         if (mesh.isMesh && mesh.material) {
           const material = mesh.material as THREE.MeshStandardMaterial;
           material.metalness = 0;
-          material.roughness = 0.5;
-          if (
-            id > 40 ||
-            id === 8 ||
-            id === 8 ||
-            id === 16 ||
-            id === 17 ||
-            id === 18
-          ) {
-            material.alphaTest = 0.5;
-          }
+          material.roughness = 1;
           material.transparent = true;
           if (material.map) {
-            if (material.map.name.includes("Fire")) {
-              material.color.set("orange");
-              material.emissive.set("red");
-              material.alphaMap = material.map;
-              material.opacity = 0.5;
-            }
             if (material.map.name.includes("Beto")) {
               material.color.set("#DDA0DD");
             }
           }
         }
-
-        if (
-          mesh.isMesh &&
-          id !== 1 &&
-          id !== 8 &&
-          id !== 8 &&
-          id !== 16 &&
-          id !== 17 &&
-          id !== 18 &&
-          Number(id) < 41
-        ) {
-          mesh.castShadow = true;
-          mesh.receiveShadow = true;
-        }
       });
     }
-  }, [scene]);
+  }, [scene, id]);
 
-  return (
-    <group ref={modelGroup}>
-      <primitive object={scene} />
-    </group>
-  );
+  return <primitive object={scene} scale={0.25} />;
 };
 
 /**
@@ -172,6 +161,11 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonId }) => {
       }models/${pokemonName}/${pokemonName}.glb?v=${new Date().getTime()}`,
     [pokemonName],
   );
+
+  const cameraDistance =
+    pokemon ? (POKEMON_CAMERA_DISTANCE[pokemon.id] ?? DEFAULT_CAMERA_DISTANCE) : DEFAULT_CAMERA_DISTANCE;
+  const verticalOffsetRatio =
+    pokemon ? (POKEMON_VERTICAL_OFFSET[pokemon.id] ?? DEFAULT_VERTICAL_OFFSET) : DEFAULT_VERTICAL_OFFSET;
 
   const audio = useMemo(
     () =>
@@ -208,8 +202,6 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonId }) => {
       </div>
     );
   }
-
-  const cameraDistance = pokemon.id === 24 ? 6 : pokemon.id === 23 ? 4.5 : 5;
 
   useEffect(() => {
     const loader = document.querySelector(".loader");
@@ -258,18 +250,17 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonId }) => {
         style={{ background: "transparent" }}
         shadows
         key={modelPath}
-        camera={{ position: [0, 0, cameraDistance], fov: 50 }}
+        camera={{ position: [0, 0, cameraDistance] }}
       >
         <ambientLight intensity={1} />
         <directionalLight position={[-5, 5, 5]} intensity={2} castShadow />
         <directionalLight position={[5, 5, -5]} intensity={2} castShadow />
-        <OrbitControls
-          enableDamping
-          dampingFactor={0.25}
-          minDistance={2}
-          maxDistance={6}
+        <OrbitControls autoRotate target={[0, 0, 0]} />
+        <PokemonModel
+          modelPath={modelPath}
+          id={pokemon.id}
+          verticalOffsetRatio={verticalOffsetRatio}
         />
-        <PokemonModel modelPath={modelPath} id={pokemon.id} />
       </Canvas>
     </div>
   );

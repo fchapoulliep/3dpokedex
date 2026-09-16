@@ -1,7 +1,7 @@
 /**
  * Importing React, the Loader component, the PokemonType component, and the Link component.
  */
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
@@ -162,10 +162,12 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonId }) => {
     [pokemonName],
   );
 
-  const cameraDistance =
-    pokemon ? (POKEMON_CAMERA_DISTANCE[pokemon.id] ?? DEFAULT_CAMERA_DISTANCE) : DEFAULT_CAMERA_DISTANCE;
-  const verticalOffsetRatio =
-    pokemon ? (POKEMON_VERTICAL_OFFSET[pokemon.id] ?? DEFAULT_VERTICAL_OFFSET) : DEFAULT_VERTICAL_OFFSET;
+  const cameraDistance = pokemon
+    ? (POKEMON_CAMERA_DISTANCE[pokemon.id] ?? DEFAULT_CAMERA_DISTANCE)
+    : DEFAULT_CAMERA_DISTANCE;
+  const verticalOffsetRatio = pokemon
+    ? (POKEMON_VERTICAL_OFFSET[pokemon.id] ?? DEFAULT_VERTICAL_OFFSET)
+    : DEFAULT_VERTICAL_OFFSET;
 
   const audio = useMemo(
     () =>
@@ -255,7 +257,12 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonId }) => {
         <ambientLight intensity={1} />
         <directionalLight position={[-5, 5, 5]} intensity={2} castShadow />
         <directionalLight position={[5, 5, -5]} intensity={2} castShadow />
-        <OrbitControls autoRotate target={[0, 0, 0]} />
+        <OrbitControls
+          autoRotate
+          target={[0, 0, 0]}
+          minDistance={2.5}
+          maxDistance={8}
+        />
         <PokemonModel
           modelPath={modelPath}
           id={pokemon.id}

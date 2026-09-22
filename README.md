@@ -1,50 +1,78 @@
-# React + TypeScript + Vite
+# 3D Pokédex
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React + TypeScript application that lets you browse the first generation of Pokémon in an interactive 3D Pokédex.
 
-Currently, two official plugins are available:
+The app includes a searchable Pokémon list, type-based filtering, animated 3D models, sound playback, and a card-based browsing experience inspired by classic Pokédex interfaces.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- 3D Pokémon viewer using React Three Fiber and Three.js
+- Search by Pokémon name
+- Filter by Pokémon type
+- Horizontal carousel browsing for the Pokédex entries
+- Pokémon detail page with description, types, and model rendering
+- Audio playback for each Pokémon
+- GitHub Pages deployment setup
+- Responsive UI with React Router navigation
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Tech Stack
 
-- Configure the top-level `parserOptions` property like this:
+- React 18
+- TypeScript
+- Vite
+- React Three Fiber
+- Drei
+- Three.js
+- Swiper
+- React Router
+- gh-pages
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Getting Started
+
+### Install dependencies
+
+```bash
+npm install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Run locally
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+npm run dev
 ```
+
+The app will be available in the browser through the Vite local dev server.
+
+### Production build
+
+```bash
+npm run build
+```
+
+### Preview production build
+
+```bash
+npm run preview
+```
+
+### Deploy to GitHub Pages
+
+```bash
+npm run deploy
+```
+
+## Live Demo
+
+The project is configured for GitHub Pages deployment:
+
+https://fchapoulliep.github.io/3dpokedex/
+
+## Notes
+
+- The Pokémon data is stored in `src/data/pokemons.json`.
+- 3D models and related assets are served from the `public/models` folder.
+- The app uses a hash router (`HashRouter`) to support static hosting on GitHub Pages.
+
+## License
+
+This project is for educational and personal use.

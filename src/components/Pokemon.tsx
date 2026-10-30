@@ -1,7 +1,7 @@
 /**
  * Importing React, the Loader component, the PokemonType component, and the Link component.
  */
-import React, { useEffect, useMemo } from "react";
+import React, { Suspense, useEffect, useLayoutEffect, useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
@@ -26,6 +26,8 @@ interface PokemonModelProps {
   modelPath: string;
   id: number;
   verticalOffsetRatio: number;
+  /** Called once the model is drawn and its framing has settled. */
+  onReady: () => void;
 }
 
 const POKEMON_CAMERA_DISTANCE: Record<number, number> = {
@@ -69,9 +71,11 @@ const PokemonModel: React.FC<PokemonModelProps> = ({
   modelPath,
   id,
   verticalOffsetRatio,
+  onReady,
 }) => {
   const { scene, animations } = useGLTF(modelPath);
   const mixer = new THREE.AnimationMixer(scene);
+  const frames = useRef(0);
 
   useEffect(() => {
     if (animations.length > 0) {
@@ -93,10 +97,19 @@ const PokemonModel: React.FC<PokemonModelProps> = ({
 
   useFrame((_, delta) => {
     mixer.update(delta);
+    // A few frames let the framing settle (centering, scale, camera fit): only
+    // then is the model shown, so that it never jumps or glides into place.
+    frames.current += 1;
+    if (frames.current === 5) {
+      onReady();
+    }
   });
 
   useEffect(() => {
     if (scene) {
+      // A model already seen comes back from the cache with the position of its
+      // last visit: start from the origin so that it is centered the same way.
+      scene.position.set(0, 0, 0);
       const box = new THREE.Box3().setFromObject(scene);
       const size = new THREE.Vector3();
       const center = new THREE.Vector3();
@@ -138,13 +151,21 @@ const PokemonModel: React.FC<PokemonModelProps> = ({
 };
 
 /**
+ * Models drawn during this visit. drei keeps them in memory, so they come back
+ * at once and need no loader.
+ */
+const seenModels = new Set<string>();
+
+/** How long the loader stays at least, for a model not seen yet. */
+const LOADER_MIN_MS = 1000;
+
+/**
  *  Component that renders a Pokémon page with a 3D model, description, and type information.
  * @param pokemonId The ID of the Pokémon to display.
  * @returns The Pokémon page with the 3D model, description, and type information.
  */
 const Pokemon: React.FC<PokemonProps> = ({ pokemonId }) => {
   const pokemon = pokemonList.find((p) => p.id === parseInt(pokemonId));
-  const [loading, setLoading] = React.useState(true);
 
   const pokemonName = pokemon
     ? pokemon.name.english
@@ -158,7 +179,7 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonId }) => {
     () =>
       `${
         import.meta.env.BASE_URL
-      }models/${pokemonName}/${pokemonName}.glb?v=${new Date().getTime()}`,
+      }models/${pokemonName}/${pokemonName}.glb?v=${__BUILD_ID__}`,
     [pokemonName],
   );
 
@@ -176,7 +197,7 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonId }) => {
         ? new Audio(
             `${
               import.meta.env.BASE_URL
-            }models/${pokemonName}/${pokemonName}.mp3?v=${new Date().getTime()}`,
+            }models/${pokemonName}/${pokemonName}.mp3?v=${__BUILD_ID__}`,
           )
         : null,
     [pokemonName],
@@ -200,13 +221,36 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonId }) => {
     };
   }, [audio]);
 
-  useEffect(() => {
-    const loader = document.querySelector(".loader");
-    if (loader) {
-      loader.classList.remove("animation");
+  // The loader follows the model rather than a fixed delay. A model not seen
+  // yet shows it at once and for at least LOADER_MIN_MS, so that a quick load
+  // reads as a transition rather than a black flash; a model already seen
+  // during the visit is still in memory and shows up without it.
+  const [loaderPhase, setLoaderPhase] = React.useState<
+    "visible" | "closing" | "hidden"
+  >("visible");
+  const [drawnPath, setDrawnPath] = React.useState<string | null>(null);
+  const modelDrawn = drawnPath === modelPath;
+  const loaderShownAt = useRef(performance.now());
+
+  useLayoutEffect(() => {
+    if (seenModels.has(modelPath)) {
+      setLoaderPhase("hidden");
+      return;
     }
-    setLoading(false);
+    loaderShownAt.current = performance.now();
+    setLoaderPhase("visible");
   }, [modelPath]);
+
+  useEffect(() => {
+    if (!modelDrawn) return;
+    seenModels.add(modelPath);
+    const elapsed = performance.now() - loaderShownAt.current;
+    const timer = setTimeout(
+      () => setLoaderPhase((phase) => (phase === "visible" ? "closing" : phase)),
+      Math.max(0, LOADER_MIN_MS - elapsed),
+    );
+    return () => clearTimeout(timer);
+  }, [modelDrawn, modelPath]);
 
   if (!pokemon) {
     return (
@@ -226,15 +270,6 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonId }) => {
     );
   }
 
-  useEffect(() => {
-    const loader = document.querySelector(".loader");
-    if (loader && !loading) {
-      setTimeout(() => {
-        loader.classList.add("animation");
-      }, 1500);
-    }
-  });
-
   return (
     <div
       id="pokemon-overlay"
@@ -248,7 +283,12 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonId }) => {
         backgroundSize: "cover",
       }}
     >
-      <Loader />
+      {loaderPhase !== "hidden" && (
+        <Loader
+          closing={loaderPhase === "closing"}
+          onClosed={() => setLoaderPhase("hidden")}
+        />
+      )}
       <div className="pokemon-description">
         <h2>{pokemon.name.english}</h2>
         <p>Pokédex No. {pokemon.id}</p>
@@ -280,7 +320,12 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonId }) => {
       </button>
 
       <Canvas
-        style={{ background: "transparent" }}
+        style={{
+          background: "transparent",
+          // Hidden until the model is in place, then faded in
+          opacity: modelDrawn ? 1 : 0,
+          transition: "opacity 150ms",
+        }}
         shadows
         key={modelPath}
         camera={{ position: [0, 0, cameraDistance] }}
@@ -294,11 +339,16 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonId }) => {
           minDistance={2.5}
           maxDistance={8}
         />
-        <PokemonModel
-          modelPath={modelPath}
-          id={pokemon.id}
-          verticalOffsetRatio={verticalOffsetRatio}
-        />
+        {/* A model still loading suspends the scene only: without this boundary,
+            the page itself would wait, and the previous page would stay on screen */}
+        <Suspense fallback={null}>
+          <PokemonModel
+            modelPath={modelPath}
+            id={pokemon.id}
+            verticalOffsetRatio={verticalOffsetRatio}
+            onReady={() => setDrawnPath(modelPath)}
+          />
+        </Suspense>
       </Canvas>
     </div>
   );

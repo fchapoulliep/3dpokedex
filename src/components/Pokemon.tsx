@@ -169,15 +169,36 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonId }) => {
     ? (POKEMON_VERTICAL_OFFSET[pokemon.id] ?? DEFAULT_VERTICAL_OFFSET)
     : DEFAULT_VERTICAL_OFFSET;
 
+  // Only for an existing Pokémon: otherwise the browser would fetch models//.mp3.
   const audio = useMemo(
     () =>
-      new Audio(
-        `${
-          import.meta.env.BASE_URL
-        }models/${pokemonName}/${pokemonName}.mp3?v=${new Date().getTime()}`,
-      ),
+      pokemonName
+        ? new Audio(
+            `${
+              import.meta.env.BASE_URL
+            }models/${pokemonName}/${pokemonName}.mp3?v=${new Date().getTime()}`,
+          )
+        : null,
     [pokemonName],
   );
+  const [isPlaying, setIsPlaying] = React.useState(false);
+
+  // The button shows when the cry plays, and the cry stops when the page changes.
+  useEffect(() => {
+    if (!audio) return;
+    const start = () => setIsPlaying(true);
+    const stop = () => setIsPlaying(false);
+    audio.addEventListener("playing", start);
+    audio.addEventListener("ended", stop);
+    audio.addEventListener("pause", stop);
+    return () => {
+      audio.pause();
+      audio.removeEventListener("playing", start);
+      audio.removeEventListener("ended", stop);
+      audio.removeEventListener("pause", stop);
+      setIsPlaying(false);
+    };
+  }, [audio]);
 
   useEffect(() => {
     const loader = document.querySelector(".loader");
@@ -239,13 +260,23 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonId }) => {
         ))}
       </div>
       <button
+        type="button"
+        className={`pokemon-cry${isPlaying ? " playing" : ""}`}
         onClick={() => {
           if (audio) {
-            audio.play();
+            audio.currentTime = 0;
+            audio.play().catch(() => setIsPlaying(false));
           }
         }}
+        aria-label={`Play ${pokemon.name.english}'s cry`}
+        title="Play cry"
       >
-        Play Sound
+        {/* Lucide "volume-2" icon (ISC license): its two waves light up while the cry plays */}
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z" />
+          <path className="wave" d="M16 9a5 5 0 0 1 0 6" />
+          <path className="wave wave-far" d="M19.364 18.364a9 9 0 0 0 0-12.728" />
+        </svg>
       </button>
 
       <Canvas

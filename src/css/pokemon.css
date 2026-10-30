@@ -60,76 +60,114 @@
   z-index: 1;
 }
 
-#pokemon-overlay button {
-  font-size: 12px;
-  background-color: #008542;
-  color: #fff;
-  text-shadow: 0 2px 0 rgb(0 0 0 / 25%);
+/* The cry button: round and translucent, like the description and type panels */
+#pokemon-overlay .pokemon-cry {
+  position: absolute;
+  bottom: 5%;
+  z-index: 1;
+  width: 56px;
+  height: 56px;
+  padding: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  border: 0;
-  z-index: 1;
-  user-select: none;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
   cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  white-space: unset;
-  padding: 0.8rem 1.5rem;
-  text-decoration: none;
-  font-weight: 900;
-  transition: all 0.7s cubic-bezier(0, 0.8, 0.26, 0.99);
   pointer-events: auto;
-  position: absolute;
-  bottom: 5%;
+  transition: background-color 200ms, border-color 200ms, transform 200ms;
 }
 
-#pokemon-overlay button:before {
-  position: absolute;
-  pointer-events: none;
-  top: 0;
-  left: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
+#pokemon-overlay .pokemon-cry svg {
+  width: 26px;
+  height: 26px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+#pokemon-overlay .pokemon-cry .wave {
+  opacity: 0.55;
+  transition: opacity 200ms;
+}
+
+#pokemon-overlay .pokemon-cry:hover {
+  background-color: rgba(0, 0, 0, 0.75);
+  border-color: rgba(255, 255, 255, 0.45);
+  transform: scale(1.06);
+}
+
+#pokemon-overlay .pokemon-cry:hover .wave {
+  opacity: 1;
+}
+
+#pokemon-overlay .pokemon-cry:active {
+  transform: scale(0.96);
+}
+
+#pokemon-overlay .pokemon-cry:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+/* While the cry plays, the waves pulse and a soft ring spreads out */
+#pokemon-overlay .pokemon-cry.playing .wave {
+  animation: cry-wave 900ms ease-in-out infinite;
+}
+
+#pokemon-overlay .pokemon-cry.playing .wave-far {
+  animation-delay: 150ms;
+}
+
+#pokemon-overlay .pokemon-cry.playing::after {
   content: "";
-  transition: 0.7s cubic-bezier(0, 0.8, 0.26, 0.99);
-  z-index: -1;
-  background-color: #008542 !important;
-  box-shadow: 0 -4px rgb(21 108 0 / 50%) inset,
-    0 4px rgb(100 253 31 / 99%) inset, -4px 0 rgb(100 253 31 / 50%) inset,
-    4px 0 rgb(21 108 0 / 50%) inset;
-}
-
-#pokemon-overlay button:after {
   position: absolute;
+  inset: -1px;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
   pointer-events: none;
-  top: 0;
-  left: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  content: "";
-  box-shadow: 0 4px 0 0 rgb(0 0 0 / 15%);
-  transition: 0.7s cubic-bezier(0, 0.8, 0.26, 0.99);
+  animation: cry-ring 1.2s ease-out infinite;
 }
 
-#pokemon-overlay button:hover:before {
-  box-shadow: 0 -4px rgb(0 0 0 / 50%) inset, 0 4px rgb(255 255 255 / 20%) inset,
-    -4px 0 rgb(255 255 255 / 20%) inset, 4px 0 rgb(0 0 0 / 50%) inset;
+@keyframes cry-wave {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
-#pokemon-overlay button:hover:after {
-  box-shadow: 0 4px 0 0 rgb(0 0 0 / 15%);
+@keyframes cry-ring {
+  from {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  to {
+    transform: scale(1.6);
+    opacity: 0;
+  }
 }
 
-#pokemon-overlay button:active {
-  transform: translateY(4px);
-}
+@media (prefers-reduced-motion: reduce) {
+  #pokemon-overlay .pokemon-cry,
+  #pokemon-overlay .pokemon-cry .wave {
+    transition: none;
+  }
 
-#pokemon-overlay button:active:after {
-  box-shadow: 0 0px 0 0 rgb(0 0 0 / 15%);
+  #pokemon-overlay .pokemon-cry.playing .wave,
+  #pokemon-overlay .pokemon-cry.playing::after {
+    animation: none;
+  }
+
+  #pokemon-overlay .pokemon-cry.playing .wave {
+    opacity: 1;
+  }
 }
 
 @media (max-width: 768px) {

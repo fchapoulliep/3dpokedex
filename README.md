@@ -71,7 +71,7 @@ https://fchapoulliep.github.io/3dpokedex/
 
 - The Pokémon data is stored in `src/data/pokemons.json`.
 - 3D models and related assets are served from the `public/models` folder.
-- The app uses a hash router (`HashRouter`) to support static hosting on GitHub Pages.
+- Pokémon live at real paths (`/3dpokedex/25`). GitHub Pages has no fallback for a single-page app, so the build (a small plugin in `vite.config.ts`) writes one HTML file per Pokémon, with its own title, description, share image and canonical URL, plus a `404.html` that loads the app on any other path and a `sitemap.xml` generated from the data. Old `#/25` links are redirected.
 
 ## License
 

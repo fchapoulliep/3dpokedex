@@ -36,6 +36,11 @@ const Pokedex: React.FC = () => {
   const [searchQuery, setSearchQuery] = React.useState("");
   const [selectedType, setSelectedType] = React.useState("");
 
+  // Back on the list after a Pokémon page, the tab title goes back to the site name.
+  React.useEffect(() => {
+    document.title = "3D Pokédex";
+  }, []);
+
   /**
    * handleInput function that filters the Pokémon list based on the search query.
    */

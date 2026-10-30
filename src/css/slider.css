@@ -37,3 +37,16 @@
 .slider-left:hover img {
   transform: scale(1.2) translateX(-5px);
 }
+
+/* Phones: the same red arrows, slimmer, so that they leave room for the model */
+@media (max-width: 768px) {
+  #slider {
+    width: 32px;
+    height: 18%;
+  }
+
+  #slider img {
+    width: 14px;
+    height: 14px;
+  }
+}

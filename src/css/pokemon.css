@@ -39,6 +39,19 @@
 
 #pokemon-overlay .pokemon-description p {
   margin: 5px 0;
+  /* The pixel font has no usable line height of its own: lines overlapped */
+  line-height: 1.35;
+}
+
+#pokemon-overlay .description-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Only shown on phones, where the description folds into a bar */
+#pokemon-overlay .description-toggle {
+  display: none;
 }
 
 #pokemon-overlay .pokemon-types {
@@ -193,4 +206,82 @@
   }
 
   
+}
+
+/* Phones: the description folds into a bar with the name; the toggle opens it upwards */
+@media (max-width: 768px) {
+  #pokemon-overlay .pokemon-description {
+    min-width: 0;
+    max-width: 60%;
+    padding: 4px 6px 4px 10px;
+  }
+
+  #pokemon-overlay .description-head h2 {
+    margin: 0;
+  }
+
+  #pokemon-overlay .description-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    margin-left: auto;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: #fff;
+    cursor: pointer;
+    pointer-events: auto;
+  }
+
+  /* The whole bar answers the tap, not only the chevron */
+  #pokemon-overlay .description-toggle::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+
+  #pokemon-overlay .description-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 200ms;
+  }
+
+  #pokemon-overlay .pokemon-description.open .description-toggle svg {
+    transform: rotate(180deg);
+  }
+
+  #pokemon-overlay .description-details {
+    display: none;
+  }
+
+  /* The cry button moves above the type panel, on the right, which leaves
+     the bottom left to the description, folded or open */
+  #pokemon-overlay .pokemon-cry {
+    right: 8px;
+    bottom: calc(5% + 44px);
+    width: 48px;
+    height: 48px;
+  }
+
+  #pokemon-overlay .pokemon-cry svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  #pokemon-overlay .pokemon-description.open .description-details {
+    display: block;
+  }
+
+  /* Open, the panel stays above the rest of the scene */
+  #pokemon-overlay .pokemon-description.open {
+    z-index: 2;
+  }
 }

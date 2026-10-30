@@ -203,6 +203,7 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonId }) => {
     [pokemonName],
   );
   const [isPlaying, setIsPlaying] = React.useState(false);
+  const [descriptionOpen, setDescriptionOpen] = React.useState(false);
 
   // The button shows when the cry plays, and the cry stops when the page changes.
   useEffect(() => {
@@ -289,10 +290,29 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonId }) => {
           onClosed={() => setLoaderPhase("hidden")}
         />
       )}
-      <div className="pokemon-description">
-        <h2>{pokemon.name.english}</h2>
-        <p>Pokédex No. {pokemon.id}</p>
-        <p>{pokemon.description}</p>
+      {/* On phones the description folds into a bar with the name, opened on demand;
+          on wider screens it is always open and the toggle is hidden */}
+      <div className={`pokemon-description${descriptionOpen ? " open" : ""}`}>
+        <div className="description-head">
+          <h2>{pokemon.name.english}</h2>
+          <button
+            type="button"
+            className="description-toggle"
+            aria-expanded={descriptionOpen}
+            aria-controls="pokemon-details"
+            aria-label={descriptionOpen ? "Hide the description" : "Show the description"}
+            onClick={() => setDescriptionOpen((open) => !open)}
+          >
+            {/* Lucide "chevron-up" icon (ISC license) */}
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m18 15-6-6-6 6" />
+            </svg>
+          </button>
+        </div>
+        <div id="pokemon-details" className="description-details">
+          <p>Pokédex No. {pokemon.id}</p>
+          <p>{pokemon.description}</p>
+        </div>
       </div>
       <div className="pokemon-types">
         {pokemon.type.map((type) => (

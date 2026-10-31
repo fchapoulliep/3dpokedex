@@ -9,6 +9,24 @@
   justify-content: center;
   pointer-events: none;
   overflow: hidden;
+  /* Seen until the type background has fully loaded */
+  background-color: #111;
+}
+
+/* A type background, added once fully loaded (so that it never paints in
+   strips): it fades in over the previous one */
+#pokemon-overlay .pokemon-background {
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  animation: backgroundIn 500ms ease-out;
+}
+
+@keyframes backgroundIn {
+  from {
+    opacity: 0;
+  }
 }
 
 #pokemon-overlay .pokemon-description {

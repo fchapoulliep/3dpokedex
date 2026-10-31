@@ -286,6 +286,42 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonId }) => {
     setLoaderPhase((phase) => (phase === "visible" ? "closing" : phase));
   }, [modelDrawn, modelPath]);
 
+  const backgroundPath = pokemon
+    ? `${import.meta.env.BASE_URL}backgrounds/${
+        pokemon.type[0] === "Normal" && pokemon.type[1]
+          ? pokemon.type[1]
+          : pokemon.type[0]
+      }.png`
+    : null;
+
+  // A background shows only once fully loaded and decoded, then fades in over
+  // the previous one (or the dark base), which leaves once fully covered
+  const [backgrounds, setBackgrounds] = React.useState<{ id: number; path: string }[]>([]);
+  const nextBackgroundId = useRef(0);
+
+  useEffect(() => {
+    if (!backgroundPath) return;
+    let cancelled = false;
+    const image = new Image();
+    image.src = backgroundPath;
+    image
+      .decode()
+      .catch(() => undefined)
+      .then(() => {
+        if (cancelled) return;
+        // A new id each time, so that coming back to a background fades it in again
+        const id = nextBackgroundId.current++;
+        setBackgrounds((layers) =>
+          layers[layers.length - 1]?.path === backgroundPath
+            ? layers
+            : [...layers, { id, path: backgroundPath }],
+        );
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [backgroundPath]);
+
   if (!pokemon) {
     return (
       <div
@@ -305,18 +341,18 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonId }) => {
   }
 
   return (
-    <div
-      id="pokemon-overlay"
-      style={{
-        backgroundImage: `url(${import.meta.env.BASE_URL}backgrounds/${
-          pokemon.type[0] === "Normal" && pokemon.type[1]
-            ? pokemon.type[1]
-            : pokemon.type[0]
-        }.png)`,
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-      }}
-    >
+    <div id="pokemon-overlay">
+      {backgrounds.map((layer) => (
+        <div
+          key={layer.id}
+          className="pokemon-background"
+          style={{ backgroundImage: `url(${layer.path})` }}
+          // Once this one has faded in, the layers it covers leave the page
+          onAnimationEnd={() =>
+            setBackgrounds((layers) => layers.filter((other) => other.id >= layer.id))
+          }
+        />
+      ))}
       {loaderPhase !== "hidden" && (
         <Loader
           closing={loaderPhase === "closing"}

@@ -1,7 +1,7 @@
 /**
  * Importing React, the Loader component, the PokemonType component, and the Link component.
  */
-import React, { Suspense, useEffect, useLayoutEffect, useMemo, useRef } from "react";
+import React, { Suspense, useEffect, useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
@@ -26,6 +26,8 @@ interface PokemonModelProps {
   modelPath: string;
   id: number;
   verticalOffsetRatio: number;
+  /** Comes forward from far behind its place, rather than showing up in place. */
+  comesForward: boolean;
   /** Called once the model is drawn and its framing has settled. */
   onReady: () => void;
 }
@@ -57,6 +59,16 @@ const POKEMON_VERTICAL_OFFSET: Record<number, number> = {
 
 const DEFAULT_VERTICAL_OFFSET = 2;
 
+/** How long the model takes to come forward to its place, in seconds. */
+const ENTRANCE_S = 0.5;
+
+/**
+ * How far behind its place the model starts, in camera distances: the camera
+ * distance changes from one Pokémon to another, and four more of them put the
+ * model five times further away, so that it first shows at a fifth of its size.
+ */
+const ENTRANCE_DEPTH = 4;
+
 /**
  * Component that renders a 3D model of a Pokémon using the provided model path and Pokémon ID.
  * It handles loading the model, playing idle animations, and centering/scaling the model.
@@ -71,6 +83,7 @@ const PokemonModel: React.FC<PokemonModelProps> = ({
   modelPath,
   id,
   verticalOffsetRatio,
+  comesForward,
   onReady,
 }) => {
   const { scene, animations } = useGLTF(modelPath);
@@ -78,6 +91,8 @@ const PokemonModel: React.FC<PokemonModelProps> = ({
   // each time the page changed state (loader, description), hence the jolts
   const mixer = useMemo(() => new THREE.AnimationMixer(scene), [scene]);
   const frames = useRef(0);
+  const group = useRef<THREE.Group>(null);
+  const entrance = useRef<{ from: THREE.Vector3; elapsed: number } | null>(null);
 
   useEffect(() => {
     if (animations.length > 0) {
@@ -97,13 +112,30 @@ const PokemonModel: React.FC<PokemonModelProps> = ({
     };
   }, [animations, mixer, scene]);
 
-  useFrame((_, delta) => {
+  useFrame(({ camera }, delta) => {
     mixer.update(delta);
     // A few frames let the framing settle (centering, scale, camera fit): only
-    // then is the model shown, so that it never jumps or glides into place.
+    // then is the model shown, coming forward from far behind its place.
     frames.current += 1;
     if (frames.current === 5) {
+      if (comesForward) {
+        // Along the line of sight: the controls orbit the origin, so the
+        // camera's position runs from there to the camera and measures its
+        // distance. The far-away model then stands right behind the loader.
+        const from = camera.position.clone().multiplyScalar(-ENTRANCE_DEPTH);
+        entrance.current = { from, elapsed: 0 };
+      }
       onReady();
+    }
+
+    const move = entrance.current;
+    if (move && group.current) {
+      // A long first frame (shader compilation) must not skip half the move
+      move.elapsed = Math.min(move.elapsed + Math.min(delta, 1 / 30), ENTRANCE_S);
+      const progress = move.elapsed / ENTRANCE_S;
+      // Fast at first, then slows down to settle in place
+      const eased = 1 - Math.pow(1 - progress, 3);
+      group.current.position.copy(move.from).multiplyScalar(1 - eased);
     }
   });
 
@@ -149,17 +181,24 @@ const PokemonModel: React.FC<PokemonModelProps> = ({
     }
   }, [scene, id]);
 
-  return <primitive object={scene} scale={0.25} />;
+  return (
+    <group ref={group}>
+      <primitive object={scene} scale={0.25} />
+    </group>
+  );
 };
 
 /**
- * Models drawn during this visit. drei keeps them in memory, so they come back
- * at once and need no loader.
+ * Models drawn during this visit. drei keeps them in memory: they show up in
+ * place at once, without coming forward again.
  */
 const seenModels = new Set<string>();
 
-/** How long the loader stays at least, for a model not seen yet. */
-const LOADER_MIN_MS = 1000;
+/**
+ * How long a model may take to show before the loader appears: a quick one,
+ * such as a model already seen during the visit, needs none.
+ */
+const LOADER_DELAY_MS = 150;
 
 /**
  *  Component that renders a Pokémon page with a 3D model, description, and type information.
@@ -224,35 +263,27 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonId }) => {
     };
   }, [audio]);
 
-  // The loader follows the model rather than a fixed delay. A model not seen
-  // yet shows it at once and for at least LOADER_MIN_MS, so that a quick load
-  // reads as a transition rather than a black flash; a model already seen
-  // during the visit is still in memory and shows up without it.
+  // The loader stands where the model will appear, and only once the model
+  // has taken more than LOADER_DELAY_MS to show.
   const [loaderPhase, setLoaderPhase] = React.useState<
     "visible" | "closing" | "hidden"
-  >("visible");
+  >("hidden");
   const [drawnPath, setDrawnPath] = React.useState<string | null>(null);
   const modelDrawn = drawnPath === modelPath;
-  const loaderShownAt = useRef(performance.now());
+  // Decided once per model, before the effect below marks it as seen
+  const comesForward = useMemo(() => !seenModels.has(modelPath), [modelPath]);
 
-  useLayoutEffect(() => {
-    if (seenModels.has(modelPath)) {
-      setLoaderPhase("hidden");
-      return;
-    }
-    loaderShownAt.current = performance.now();
-    setLoaderPhase("visible");
-  }, [modelPath]);
+  useEffect(() => {
+    if (modelDrawn) return;
+    const timer = setTimeout(() => setLoaderPhase("visible"), LOADER_DELAY_MS);
+    return () => clearTimeout(timer);
+  }, [modelDrawn, modelPath]);
 
   useEffect(() => {
     if (!modelDrawn) return;
     seenModels.add(modelPath);
-    const elapsed = performance.now() - loaderShownAt.current;
-    const timer = setTimeout(
-      () => setLoaderPhase((phase) => (phase === "visible" ? "closing" : phase)),
-      Math.max(0, LOADER_MIN_MS - elapsed),
-    );
-    return () => clearTimeout(timer);
+    // The loader fades out while the model comes forward
+    setLoaderPhase((phase) => (phase === "visible" ? "closing" : phase));
   }, [modelDrawn, modelPath]);
 
   if (!pokemon) {
@@ -368,6 +399,7 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonId }) => {
             modelPath={modelPath}
             id={pokemon.id}
             verticalOffsetRatio={verticalOffsetRatio}
+            comesForward={comesForward}
             onReady={() => setDrawnPath(modelPath)}
           />
         </Suspense>

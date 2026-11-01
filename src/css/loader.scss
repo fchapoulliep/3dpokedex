@@ -2,12 +2,13 @@
 
 /* The loader stands where the model will appear, above the scene: the model
    then comes forward from behind it. The Pokeball is 54px wide (50px and its
-   2px border), scaled to about 120px. */
+   2px border), scaled to about 97px: its rubber band stretches it by a
+   quarter, to about 120px at most, the size of the other dex loaders. */
 .loader {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(2.2);
+  transform: translate(-50%, -50%) scale(1.8);
   z-index: 1;
   pointer-events: none;
   animation: loaderIn 200ms ease-out;

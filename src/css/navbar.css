@@ -83,8 +83,11 @@
 }
 
 @media screen and (max-width: 480px) {
+  /* the bar's own height, held at the top: centred in a taller box, it
+     left a strip of page above it (Pokédex, DragonDex) */
   #navbar {
-    height: 52px;
+    height: 44px;
+    align-items: flex-start;
   }
 
   #navbar .navbar-pokedex {

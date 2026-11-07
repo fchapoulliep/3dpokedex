@@ -11,6 +11,7 @@ The app includes a searchable Pokémon list, type-based filtering, animated 3D m
 - Filter by Pokémon type
 - Horizontal carousel browsing for the Pokédex entries
 - Pokémon detail page with description, types, and model rendering
+- A guide on the first visit: the page darkens around the centred card, then around the model on the first character page, and a dialogue box says to click the card, then to drag and zoom (remembered by the browser, once per dex)
 - Audio playback for each Pokémon
 - GitHub Pages deployment setup
 - Responsive UI with React Router navigation

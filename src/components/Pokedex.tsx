@@ -16,6 +16,7 @@ import pokemonList from "../data/pokemons.json";
 
 /* Importing the Footer component */
 import Footer from "./Footer";
+import Onboarding from "./Onboarding";
 import PokemonCard from "./PokemonCard";
 
 import pokemonLogo from "../assets/logo/pokemonLogo.png";
@@ -139,6 +140,15 @@ const Pokedex: React.FC = () => {
         </Swiper>
       </div>
       <Footer />
+      <Onboarding
+        step="cards"
+        target=".swiper-slide-active .pokemon-cards"
+        text={{
+          mouse: "Click a card to meet the Pokémon in 3D!",
+          touch: "Tap a card to meet the Pokémon in 3D!",
+        }}
+        button="Got it"
+      />
     </div>
   );
 };

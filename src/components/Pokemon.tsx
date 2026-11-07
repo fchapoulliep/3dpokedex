@@ -7,6 +7,7 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import pokemonList from "../data/pokemons.json";
 import Loader from "./Loader";
+import Onboarding from "./Onboarding";
 import * as THREE from "three";
 import "../css/pokemon.css";
 import PokemonType from "./PokemonType";
@@ -440,6 +441,15 @@ const Pokemon: React.FC<PokemonProps> = ({ pokemonId }) => {
           />
         </Suspense>
       </Canvas>
+      <Onboarding
+        step="model"
+        ready={modelDrawn}
+        text={{
+          mouse: `Drag to spin ${pokemon.name.english} around, scroll to zoom in.`,
+          touch: `Swipe to spin ${pokemon.name.english} around, pinch to zoom in.`,
+        }}
+        button="Let's go"
+      />
     </div>
   );
 };

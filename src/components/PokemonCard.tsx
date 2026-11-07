@@ -61,7 +61,8 @@ const PokemonCard: React.FC<PokemonCardProps> = (pokemon) => {
       glareMaxOpacity={0.3}
       glareColor="white"
       glarePosition="all"
-      glareBorderRadius="20px"
+      // inside the card's 4 px outline: its 10 px corner (pokemoncard.css) minus 4
+      glareBorderRadius="6px"
       scale={1.1}
     >
       <div className="inner-element">
